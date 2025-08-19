@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ニュース・結果 - サッカーチームHP</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ヘッダー（共通部分として後でPHPでインクルード） -->
+    <header class="team-header">
+        <div class="team-header-container">
+            <a href="index.html" class="team-logo">
+                <div class="team-logo-icon">⚽</div>
+                <span class="team-logo-text">青空FC</span>
+            </a>
+            <nav class="team-nav">
+                <a href="index.html" class="team-nav-link">ホーム</a>
+                <a href="about.html" class="team-nav-link">チームについて</a>
+                <a href="news.html" class="team-nav-link active">ニュース</a>
+                <a href="schedule.html" class="team-nav-link">スケジュール</a>
+                <a href="activity.html" class="team-nav-link">活動内容</a>
+                <a href="contact.html" class="team-nav-link">お問い合わせ</a>
+            </nav>
+            <button class="hamburger-button" aria-label="メニューを開く">
+                <span>メニュー</span>
+            </button>
+        </div>
+        <div class="mobile-menu-overlay" style="display: none;">
+            <div class="mobile-menu">
+                <div class="mobile-menu-header">
+                    <div class="team-logo">
+                        <div class="team-logo-icon">⚽</div>
+                        <span class="team-logo-text">青空FC</span>
+                    </div>
+                    <button class="mobile-menu-close" aria-label="メニューを閉じる">
+                        <span>閉じる</span>
+                    </button>
+                </div>
+                <nav class="mobile-menu-nav">
+                    <a href="index.html" class="mobile-menu-item">ホーム</a>
+                    <a href="about.html" class="mobile-menu-item">チームについて</a>
+                    <a href="news.html" class="mobile-menu-item active">ニュース</a>
+                    <a href="schedule.html" class="mobile-menu-item">スケジュール</a>
+                    <a href="activity.html" class="mobile-menu-item">活動内容</a>
+                    <a href="contact.html" class="mobile-menu-item">お問い合わせ</a>
+                </nav>
+                <div class="mobile-menu-footer">
+                    <p>未来のJリーガーを育てる地域クラブ</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="news-page">
+        <!-- ヒーローセクション -->
+        <section class="news-hero team-bg-gradient">
+            <div class="team-section-container">
+                <button class="back-button" onclick="window.location.href='index.html'">
+                    <span>&larr;</span>
+                    ホームに戻る
+                </button>
+                <h1 class="news-hero-title">ニュース・結果</h1>
+                <p class="news-hero-subtitle">
+                    最新の試合結果やクラブからのお知らせをご覧ください
+                </p>
+            </div>
+        </section>
+
+        <!-- カテゴリーフィルター -->
+        <section class="news-filter-section team-bg-white">
+            <div class="team-section-container">
+                <div class="news-filter">
+                    <button class="filter-button active">すべて</button>
+                    <button class="filter-button">試合結果</button>
+                    <button class="filter-button">お知らせ</button>
+                    <button class="filter-button">イベント</button>
+                    <button class="filter-button">試合予定</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ニュース一覧 -->
+        <section class="team-section team-bg-light">
+            <div class="team-section-container">
+                <div class="news-grid">
+                    <!-- ニュースカード1 -->
+                    <article class="news-card">
+                        <div class="news-card-image">
+                            <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" alt="春季大会で準優勝を獲得しました！" class="news-image">
+                            <div class="news-category-badge">
+                                <span>🏷️</span>
+                                試合結果
+                            </div>
+                        </div>
+                        <div class="news-card-content">
+                            <div class="news-meta">
+                                <div class="news-date">
+                                    <span>📅</span>
+                                    2024.03.15
+                                </div>
+                            </div>
+                            <h3 class="news-card-title">春季大会で準優勝を獲得しました！</h3>
+                            <p class="news-card-excerpt">第45回春季少年サッカー大会にて、見事準優勝を獲得することができました。</p>
+                            <p class="news-card-content-text">第45回春季少年サッカー大会にて、見事準優勝を獲得することができました。決勝戦では惜しくも敗れましたが、選手たちは最後まで諦めることなく戦い抜きました。特にU-12チームのキャプテン田中選手の活躍が光りました。今回の結果を受けて、夏季大会に向けてさらなる練習に励んでまいります。</p>
+                        </div>
+                    </article>
+
+                    <!-- ニュースカード2 -->
+                    <article class="news-card">
+                        <div class="news-card-image">
+                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" alt="新しいコーチが加入しました" class="news-image">
+                            <div class="news-category-badge">
+                                <span>🏷️</span>
+                                お知らせ
+                            </div>
+                        </div>
+                        <div class="news-card-content">
+                            <div class="news-meta">
+                                <div class="news-date">
+                                    <span>📅</span>
+                                    2024.03.10
+                                </div>
+                            </div>
+                            <h3 class="news-card-title">新しいコーチが加入しました</h3>
+                            <p class="news-card-excerpt">元Jリーガーの山田選手が新たにコーチとして加入いたします。</p>
+                            <p class="news-card-content-text">この度、元Jリーガーの山田次郎選手が青空FCのコーチとして加入することになりました。山田コーチは現役時代、Jリーグで10年間活躍し、日本代表としても国際試合に出場した経験を持ちます。子どもたちにより質の高い指導を提供できるよう、スタッフ一同努めてまいります。</p>
+                        </div>
+                    </article>
+
+                    <!-- ニュースカード3 -->
+                    <article class="news-card">
+                        <div class="news-card-image">
+                            <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" alt="体験会を開催します" class="news-image">
+                            <div class="news-category-badge">
+                                <span>🏷️</span>
+                                イベント
+                            </div>
+                        </div>
+                        <div class="news-card-content">
+                            <div class="news-meta">
+                                <div class="news-date">
+                                    <span>📅</span>
+                                    2024.03.08
+                                </div>
+                            </div>
+                            <h3 class="news-card-title">体験会を開催します</h3>
+                            <p class="news-card-excerpt">4月に新入生向けの体験会を開催いたします。参加費無料です。</p>
+                            <p class="news-card-content-text">新年度を迎えるにあたり、新入生向けの体験会を4月7日（日）に開催いたします。時間は9:00-11:00、参加費は無料です。サッカーボールやビブスなどの用具はクラブで用意いたしますので、動きやすい服装と水筒のみお持ちください。事前の申し込みが必要です。</p>
+                        </div>
+                    </article>
+
+                     <!-- ニュースカード4 -->
+                     <article class="news-card">
+                        <div class="news-card-image">
+                            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" alt="遠征試合のお知らせ" class="news-image">
+                            <div class="news-category-badge">
+                                <span>🏷️</span>
+                                試合予定
+                            </div>
+                        </div>
+                        <div class="news-card-content">
+                            <div class="news-meta">
+                                <div class="news-date">
+                                    <span>📅</span>
+                                    2024.03.05
+                                </div>
+                            </div>
+                            <h3 class="news-card-title">遠征試合のお知らせ</h3>
+                            <p class="news-card-excerpt">来月、隣県でのフレンドリーマッチが予定されています。</p>
+                            <p class="news-card-content-text">4月14日（日）に隣県のライバルクラブとのフレンドリーマッチを予定しています。普段とは違う環境での試合経験を通じて、選手たちの成長を促します。詳細については後日、各チームの保護者の皆様にご連絡いたします。</p>
+                        </div>
+                    </article>
+
+                    <!-- ニュースカード5 -->
+                    <article class="news-card">
+                        <div class="news-card-image">
+                            <img src="https://images.unsplash.com/photo-1556056504-5c7696c4c28d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" alt="練習グラウンドの整備完了" class="news-image">
+                            <div class="news-category-badge">
+                                <span>🏷️</span>
+                                お知らせ
+                            </div>
+                        </div>
+                        <div class="news-card-content">
+                            <div class="news-meta">
+                                <div class="news-date">
+                                    <span>📅</span>
+                                    2024.03.01
+                                </div>
+                            </div>
+                            <h3 class="news-card-title">練習グラウンドの整備完了</h3>
+                            <p class="news-card-excerpt">メイングラウンドの芝生の張り替え工事が完了しました。</p>
+                            <p class="news-card-content-text">冬期間中に行っていたメイングラウンドの芝生張り替え工事が完了いたしました。新しい芝生でより良い環境での練習が可能になります。グラウンド使用については、芝生の根付きを考慮し、段階的に利用範囲を拡大してまいります。</p>
+                        </div>
+                    </article>
+
+                    <!-- ニュースカード6 -->
+                    <article class="news-card">
+                        <div class="news-card-image">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" alt="卒団式を開催しました" class="news-image">
+                            <div class="news-category-badge">
+                                <span>🏷️</span>
+                                イベント
+                            </div>
+                        </div>
+                        <div class="news-card-content">
+                            <div class="news-meta">
+                                <div class="news-date">
+                                    <span>📅</span>
+                                    2024.02.25
+                                </div>
+                            </div>
+                            <h3 class="news-card-title">卒団式を開催しました</h3>
+                            <p class="news-card-excerpt">今年度の卒団生15名の卒団式を心温まる雰囲気の中で開催しました。</p>
+                            <p class="news-card-content-text">2月25日に今年度の卒団式を開催いたしました。卒団生15名それぞれに記念品を贈呈し、6年間の活動を振り返りました。卒団生の皆さんには、青空FCで学んだことを胸に、中学校でも頑張ってほしいと思います。ご家族の皆様、長期間のサポートありがとうございました。</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- フッター（共通部分として後でPHPでインクルード） -->
+    <footer class="team-footer-compact">
+      <div class="team-footer-compact-container">
+        <div class="team-footer-compact-main">
+          <div class="team-footer-compact-section">
+            <div class="team-footer-compact-logo">
+              <div class="team-footer-logo-icon">⚽</div>
+              <span class="team-footer-logo-text">青空FC</span>
+            </div>
+            <div class="team-footer-compact-contact">
+              <span>TEL: 090-1234-5678</span>
+              <span>Email: info@aozora-fc.com</span>
+            </div>
+          </div>
+
+          <div class="team-footer-compact-section">
+            <div class="team-footer-compact-nav">
+              <a href="index.html" class="team-footer-compact-link">ホーム</a>
+              <a href="about.html" class="team-footer-compact-link">チームについて</a>
+              <a href="news.html" class="team-footer-compact-link active">ニュース</a>
+              <a href="schedule.html" class="team-footer-compact-link">スケジュール</a>
+              <a href="activity.html" class="team-footer-compact-link">活動内容</a>
+              <a href="contact.html" class="team-footer-compact-link">お問い合わせ</a>
+            </div>
+          </div>
+
+          <div class="team-footer-compact-section">
+            <div class="team-footer-compact-sns">
+              <a href="#" class="team-footer-compact-sns-link">
+                <span>📷</span>
+              </a>
+              <a href="#" class="team-footer-compact-sns-link">
+                <span>X</span>
+              </a>
+              <a href="#" class="team-footer-compact-sns-link">
+                <span>f</span>
+              </a>
+              <a href="mailto:info@aozora-fc.com" class="team-footer-compact-sns-link">
+                <span>✉️</span>
+              </a>
+            </div>
+            <div class="team-footer-compact-address">
+              <span>〒123-4567 東京都○○区△△町1-2-3</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-footer-compact-copyright">
+          <span>© 2024 青空FC. All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>

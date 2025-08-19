@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スケジュール - サッカーチームHP</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ヘッダー（共通部分として後でPHPでインクルード） -->
+    <header class="team-header">
+        <div class="team-header-container">
+            <a href="index.html" class="team-logo">
+                <div class="team-logo-icon">⚽</div>
+                <span class="team-logo-text">青空FC</span>
+            </a>
+            <nav class="team-nav">
+                <a href="index.html" class="team-nav-link">ホーム</a>
+                <a href="about.html" class="team-nav-link">チームについて</a>
+                <a href="news.html" class="team-nav-link">ニュース</a>
+                <a href="schedule.html" class="team-nav-link active">スケジュール</a>
+                <a href="activity.html" class="team-nav-link">活動内容</a>
+                <a href="contact.html" class="team-nav-link">お問い合わせ</a>
+            </nav>
+            <button class="hamburger-button" aria-label="メニューを開く">
+                <span>メニュー</span>
+            </button>
+        </div>
+        <div class="mobile-menu-overlay" style="display: none;">
+            <div class="mobile-menu">
+                <div class="mobile-menu-header">
+                    <div class="team-logo">
+                        <div class="team-logo-icon">⚽</div>
+                        <span class="team-logo-text">青空FC</span>
+                    </div>
+                    <button class="mobile-menu-close" aria-label="メニューを閉じる">
+                        <span>閉じる</span>
+                    </button>
+                </div>
+                <nav class="mobile-menu-nav">
+                    <a href="index.html" class="mobile-menu-item">ホーム</a>
+                    <a href="about.html" class="mobile-menu-item">チームについて</a>
+                    <a href="news.html" class="mobile-menu-item">ニュース</a>
+                    <a href="schedule.html" class="mobile-menu-item active">スケジュール</a>
+                    <a href="activity.html" class="mobile-menu-item">活動内容</a>
+                    <a href="contact.html" class="mobile-menu-item">お問い合わせ</a>
+                </nav>
+                <div class="mobile-menu-footer">
+                    <p>未来のJリーガーを育てる地域クラブ</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="schedule-page">
+        <!-- ヒーローセクション -->
+        <section class="schedule-hero team-bg-gradient">
+            <div class="team-section-container">
+                <button class="back-button" onclick="window.location.href='index.html'">
+                    <span>&larr;</span>
+                    ホームに戻る
+                </button>
+                <h1 class="schedule-hero-title">スケジュール</h1>
+                <p class="schedule-hero-subtitle">
+                    練習・試合・イベントの全スケジュールをご確認ください
+                </p>
+            </div>
+        </section>
+
+        <!-- スケジュール一覧 -->
+        <section class="team-section team-bg-white">
+            <div class="team-section-container">
+                <div class="schedule-full-grid">
+                    <!-- スケジュールカード1 -->
+                    <div class="schedule-full-card">
+                        <div class="schedule-full-header">
+                            <div class="schedule-full-date">3/20</div>
+                            <div class="schedule-full-type" style="background-color: var(--team-main-blue);">
+                                <span>⚽</span> 試合
+                            </div>
+                        </div>
+                        <div class="schedule-full-content">
+                            <h3 class="schedule-full-title">春季練習試合</h3>
+                            <div class="schedule-full-details">
+                                <div class="schedule-full-detail-item">
+                                    <span><i class="icon-clock"></i></span>
+                                    <span>9:00-12:00</span>
+                                </div>
+                                <div class="schedule-full-detail-item">
+                                    <span><i class="icon-map-pin"></i></span>
+                                    <span>青空総合グラウンド</span>
+                                </div>
+                                <div class="schedule-full-detail-item">
+                                    <span><i class="icon-users"></i></span>
+                                    <span>U-12</span>
+                                </div>
+                                <div class="schedule-full-detail-item">
+                                    <span><i class="icon-trophy"></i></span>
+                                    <span>vs グリーンFC</span>
+                                </div>
+                            </div>
+                            <p class="schedule-full-description">春季大会に向けた練習試合です。</p>
+                            <div class="schedule-full-status">
+                                <span class="status-badge status-予定">予定</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- スケジュールカード2 -->
+                    <div class="schedule-full-card">
+                        <div class="schedule-full-header">
+                            <div class="schedule-full-date">3/22</div>
+                            <div class="schedule-full-type" style="background-color: var(--team-grass-green);">
+                                <span>⚽</span> 練習
+                            </div>
+                        </div>
+                        <div class="schedule-full-content">
+                            <h3 class="schedule-full-title">通常練習</h3>
+                            <div class="schedule-full-details">
+                                <div class="schedule-full-detail-item">
+                                    <span><i class="icon-clock"></i></span>
+                                    <span>10:00-12:00</span>
+                                </div>
+                                <div class="schedule-full-detail-item">
+                                    <span><i class="icon-map-pin"></i></span>
+                                    <span>青空総合グラウンド</span>
+                                </div>
+                                <div class="schedule-full-detail-item">
+                                    <span><i class="icon-users"></i></span>
+                                    <span>全学年</span>
+                                </div>
+                            </div>
+                            <p class="schedule-full-description">基礎練習とミニゲーム中心。</p>
+                            <div class="schedule-full-status">
+                                <span class="status-badge status-予定">予定</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- スケジュールカード3 -->
+                    <div class="schedule-full-card">
+                        <div class="schedule-full-header">
+                            <div class="schedule-full-date">3/24</div>
+                            <div class="schedule-full-type" style="background-color: var(--team-main-blue);">
+                                <span>⚽</span> 試合
+                            </div>
+                        </div>
+                        <div class="schedule-full-content">
+                            <h3 class="schedule-full-title">春季大会</h3>
+                            <div class="schedule-full-details">
+                                <div class="schedule-full-detail-item">
+                                    <span><i class="icon-clock"></i></span>
+                                    <span>9:00-17:00</span>
+                                </div>
+                                <div class="schedule-full-detail-item">
+                                    <span><i class="icon-map-pin"></i></span>
+                                    <span>市民総合運動場</span>
+                                </div>
+                                <div class="schedule-full-detail-item">
+                                    <span><i class="icon-users"></i></span>
+                                    <span>U-10, U-12</span>
+                                </div>
+                            </div>
+                            <p class="schedule-full-description">年に一度の大きな大会です。</p>
+                            <div class="schedule-full-status">
+                                <span class="status-badge status-予定">予定</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- スケジュールカード4 -->
+                    <div class="schedule-full-card">
+                        <div class="schedule-full-header">
+                            <div class="schedule-full-date">3/27</div>
+                            <div class="schedule-full-type" style="background-color: var(--team-sub-blue);">
+                                <span>⚽</span> イベント
+                            </div>
+                        </div>
+                        <div class="schedule-full-content">
+                            <h3 class="schedule-full-title">体験会</h3>
+                            <div class="schedule-full-details">
+                                <div class="schedule-full-detail-item">
+                                    <span><i class="icon-clock"></i></span>
+                                    <span>14:00-16:00</span>
+                                </div>
+                                <div class="schedule-full-detail-item">
+                                    <span><i class="icon-map-pin"></i></span>
+                                    <span>青空総合グラウンド</span>
+                                </div>
+                                <div class="schedule-full-detail-item">
+                                    <span><i class="icon-users"></i></span>
+                                    <span>新入生対象</span>
+                                </div>
+                            </div>
+                            <p class="schedule-full-description">新年度に向けた体験会。</p>
+                            <div class="schedule-full-status">
+                                <span class="status-badge status-予定">予定</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- スケジュールカード (4月) -->
+                    <div class="schedule-full-card">
+                        <div class="schedule-full-header">
+                            <div class="schedule-full-date">4/3</div>
+                            <div class="schedule-full-type" style="background-color: var(--team-sub-blue);">
+                                <span>⚽</span> イベント
+                            </div>
+                        </div>
+                        <div class="schedule-full-content">
+                            <h3 class="schedule-full-title">新年度開始式</h3>
+                            <div class="schedule-full-details">
+                                <div class="schedule-full-detail-item">
+                                    <span><i class="icon-clock"></i></span>
+                                    <span>10:00-12:00</span>
+                                </div>
+                                <div class="schedule-full-detail-item">
+                                    <span><i class="icon-map-pin"></i></span>
+                                    <span>青空総合グラウンド</span>
+                                </div>
+                                <div class="schedule-full-detail-item">
+                                    <span><i class="icon-users"></i></span>
+                                    <span>全学年</span>
+                                </div>
+                            </div>
+                            <p class="schedule-full-description">新年度の開始式と新メンバーの紹介を行います。</p>
+                            <div class="schedule-full-status">
+                                <span class="status-badge status-予定">予定</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="schedule-full-card">
+                        <div class="schedule-full-header">
+                            <div class="schedule-full-date">4/7</div>
+                            <div class="schedule-full-type" style="background-color: var(--team-sub-blue);">
+                                <span>⚽</span> イベント
+                            </div>
+                        </div>
+                        <div class="schedule-full-content">
+                            <h3 class="schedule-full-title">新入生体験会</h3>
+                            <div class="schedule-full-details">
+                                <div class="schedule-full-detail-item">
+                                    <span><i class="icon-clock"></i></span>
+                                    <span>9:00-11:00</span>
+                                </div>
+                                <div class="schedule-full-detail-item">
+                                    <span><i class="icon-map-pin"></i></span>
+                                    <span>青空総合グラウンド</span>
+                                </div>
+                                <div class="schedule-full-detail-item">
+                                    <span><i class="icon-users"></i></span>
+                                    <span>新入生対象</span>
+                                </div>
+                            </div>
+                            <p class="schedule-full-description">新入生向けの体験会です。参加費無料。</p>
+                            <div class="schedule-full-status">
+                                <span class="status-badge status-予定">予定</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="schedule-full-card">
+                        <div class="schedule-full-header">
+                            <div class="schedule-full-date">4/10</div>
+                            <div class="schedule-full-type" style="background-color: var(--team-grass-green);">
+                                <span>⚽</span> 練習
+                            </div>
+                        </div>
+                        <div class="schedule-full-content">
+                            <h3 class="schedule-full-title">通常練習</h3>
+                            <div class="schedule-full-details">
+                                <div class="schedule-full-detail-item">
+                                    <span><i class="icon-clock"></i></span>
+                                    <span>10:00-12:00</span>
+                                </div>
+                                <div class="schedule-full-detail-item">
+                                    <span><i class="icon-map-pin"></i></span>
+                                    <span>青空総合グラウンド</span>
+                                </div>
+                                <div class="schedule-full-detail-item">
+                                    <span><i class="icon-users"></i></span>
+                                    <span>全学年</span>
+                                </div>
+                            </div>
+                            <p class="schedule-full-description">新メンバーを含めた初回の通常練習です。</p>
+                            <div class="schedule-full-status">
+                                <span class="status-badge status-予定">予定</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="schedule-full-card">
+                        <div class="schedule-full-header">
+                            <div class="schedule-full-date">4/14</div>
+                            <div class="schedule-full-type" style="background-color: var(--team-main-blue);">
+                                <span>⚽</span> 試合
+                            </div>
+                        </div>
+                        <div class="schedule-full-content">
+                            <h3 class="schedule-full-title">フレンドリーマッチ</h3>
+                            <div class="schedule-full-details">
+                                <div class="schedule-full-detail-item">
+                                    <span><i class="icon-clock"></i></span>
+                                    <span>13:00-16:00</span>
+                                </div>
+                                <div class="schedule-full-detail-item">
+                                    <span><i class="icon-map-pin"></i></span>
+                                    <span>隣県グラウンド</span>
+                                </div>
+                                <div class="schedule-full-detail-item">
+                                    <span><i class="icon-users"></i></span>
+                                    <span>U-12</span>
+                                </div>
+                                <div class="schedule-full-detail-item">
+                                    <span><i class="icon-trophy"></i></span>
+                                    <span>vs ライバルクラブ</span>
+                                </div>
+                            </div>
+                            <p class="schedule-full-description">隣県でのフレンドリーマッチです。</p>
+                            <div class="schedule-full-status">
+                                <span class="status-badge status-予定">予定</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- フッター（共通部分として後でPHPでインクルード） -->
+    <footer class="team-footer-compact">
+      <div class="team-footer-compact-container">
+        <div class="team-footer-compact-main">
+          <div class="team-footer-compact-section">
+            <div class="team-footer-compact-logo">
+              <div class="team-footer-logo-icon">⚽</div>
+              <span class="team-footer-logo-text">青空FC</span>
+            </div>
+            <div class="team-footer-compact-contact">
+              <span>TEL: 090-1234-5678</span>
+              <span>Email: info@aozora-fc.com</span>
+            </div>
+          </div>
+
+          <div class="team-footer-compact-section">
+            <div class="team-footer-compact-nav">
+              <a href="index.html" class="team-footer-compact-link">ホーム</a>
+              <a href="about.html" class="team-footer-compact-link">チームについて</a>
+              <a href="news.html" class="team-footer-compact-link">ニュース</a>
+              <a href="schedule.html" class="team-footer-compact-link active">スケジュール</a>
+              <a href="activity.html" class="team-footer-compact-link">活動内容</a>
+              <a href="contact.html" class="team-footer-compact-link">お問い合わせ</a>
+            </div>
+          </div>
+
+          <div class="team-footer-compact-section">
+            <div class="team-footer-compact-sns">
+              <a href="#" class="team-footer-compact-sns-link">
+                <span>📷</span>
+              </a>
+              <a href="#" class="team-footer-compact-sns-link">
+                <span>X</span>
+              </a>
+              <a href="#" class="team-footer-compact-sns-link">
+                <span>f</span>
+              </a>
+              <a href="mailto:info@aozora-fc.com" class="team-footer-compact-sns-link">
+                <span>✉️</span>
+              </a>
+            </div>
+            <div class="team-footer-compact-address">
+              <span>〒123-4567 東京都○○区△△町1-2-3</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-footer-compact-copyright">
+          <span>© 2024 青空FC. All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>

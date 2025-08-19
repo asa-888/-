@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ - サッカーチームHP</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ヘッダー（共通部分として後でPHPでインクルード） -->
+    <header class="team-header">
+        <div class="team-header-container">
+            <a href="index.html" class="team-logo">
+                <div class="team-logo-icon">⚽</div>
+                <span class="team-logo-text">青空FC</span>
+            </a>
+            <nav class="team-nav">
+                <a href="index.html" class="team-nav-link">ホーム</a>
+                <a href="about.html" class="team-nav-link">チームについて</a>
+                <a href="news.html" class="team-nav-link">ニュース</a>
+                <a href="schedule.html" class="team-nav-link">スケジュール</a>
+                <a href="activity.html" class="team-nav-link">活動内容</a>
+                <a href="contact.html" class="team-nav-link active">お問い合わせ</a>
+            </nav>
+            <button class="hamburger-button" aria-label="メニューを開く">
+                <span>メニュー</span>
+            </button>
+        </div>
+        <div class="mobile-menu-overlay" style="display: none;">
+            <div class="mobile-menu">
+                <div class="mobile-menu-header">
+                    <div class="team-logo">
+                        <div class="team-logo-icon">⚽</div>
+                        <span class="team-logo-text">青空FC</span>
+                    </div>
+                    <button class="mobile-menu-close" aria-label="メニューを閉じる">
+                        <span>閉じる</span>
+                    </button>
+                </div>
+                <nav class="mobile-menu-nav">
+                    <a href="index.html" class="mobile-menu-item">ホーム</a>
+                    <a href="about.html" class="mobile-menu-item">チームについて</a>
+                    <a href="news.html" class="mobile-menu-item">ニュース</a>
+                    <a href="schedule.html" class="mobile-menu-item">スケジュール</a>
+                    <a href="activity.html" class="mobile-menu-item">活動内容</a>
+                    <a href="contact.html" class="mobile-menu-item active">お問い合わせ</a>
+                </nav>
+                <div class="mobile-menu-footer">
+                    <p>未来のJリーガーを育てる地域クラブ</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="contact-page">
+        <!-- ヒーローセクション -->
+        <section class="contact-hero team-bg-gradient">
+            <div class="team-section-container">
+                <button class="back-button" onclick="window.location.href='index.html'">
+                    <span>&larr;</span>
+                    ホームに戻る
+                </button>
+                <h1 class="contact-hero-title">お問い合わせ</h1>
+                <p class="contact-hero-subtitle">
+                    体験入団や入団についてお気軽にお問い合わせください
+                </p>
+            </div>
+        </section>
+
+        <!-- メインコンテンツ -->
+        <section class="team-section team-bg-white">
+            <div class="team-section-container">
+                <div class="contact-main-grid">
+                    <!-- フォーム -->
+                    <div class="contact-form-container">
+                        <h2 class="contact-form-title">お問い合わせフォーム</h2>
+                        <form class="contact-form" action="#" method="POST">
+                            <div class="form-group">
+                                <label for="name" class="form-label">お名前 *</label>
+                                <input id="name" name="name" type="text" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="form-label">メールアドレス *</label>
+                                <input id="email" name="email" type="email" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone" class="form-label">電話番号</label>
+                                <input id="phone" name="phone" type="tel" class="form-input">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="category" class="form-label">お問い合わせ種類 *</label>
+                                <select id="category" name="category" class="form-select" required>
+                                    <option value="体験入団">体験入団について</option>
+                                    <option value="入団">入団について</option>
+                                    <option value="練習見学">練習見学について</option>
+                                    <option value="その他">その他</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message" class="form-label">メッセージ *</label>
+                                <textarea id="message" name="message" class="form-textarea" rows="6" placeholder="お子様の年齢やサッカー経験、ご質問などをお聞かせください" required></textarea>
+                            </div>
+
+                            <button type="submit" class="submit-button">
+                                <span>✉️</span>
+                                送信する
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- 連絡先情報 -->
+                    <div class="contact-info-container">
+                        <h2 class="contact-info-title">連絡先情報</h2>
+                        
+                        <div class="contact-info-grid">
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">
+                                    <span>📞</span>
+                                </div>
+                                <div class="contact-info-content">
+                                    <h3>電話番号</h3>
+                                    <p>090-1234-5678</p>
+                                    <span>平日 9:00-18:00</span>
+                                </div>
+                            </div>
+
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">
+                                    <span>✉️</span>
+                                </div>
+                                <div class="contact-info-content">
+                                    <h3>メールアドレス</h3>
+                                    <p>info@aozora-fc.com</p>
+                                    <span>24時間受付</span>
+                                </div>
+                            </div>
+
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">
+                                    <span>📍</span>
+                                </div>
+                                <div class="contact-info-content">
+                                    <h3>活動場所</h3>
+                                    <p>青空総合グラウンド</p>
+                                    <span>〒123-4567 東京都○○区...</span>
+                                </div>
+                            </div>
+
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">
+                                    <span>⏰</span>
+                                </div>
+                                <div class="contact-info-content">
+                                    <h3>活動時間</h3>
+                                    <p>土曜 9:00-12:00</p>
+                                    <p>日曜 13:00-16:00</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-note">
+                            <h3>体験入団について</h3>
+                            <p>
+                                体験入団は随時受け付けております。事前にお電話またはメールでご連絡ください。
+                                動きやすい服装と水筒をお持ちください。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- フッター（共通部分として後でPHPでインクルード） -->
+    <footer class="team-footer-compact">
+      <div class="team-footer-compact-container">
+        <div class="team-footer-compact-main">
+          <div class="team-footer-compact-section">
+            <div class="team-footer-compact-logo">
+              <div class="team-footer-logo-icon">⚽</div>
+              <span class="team-footer-logo-text">青空FC</span>
+            </div>
+            <div class="team-footer-compact-contact">
+              <span>TEL: 090-1234-5678</span>
+              <span>Email: info@aozora-fc.com</span>
+            </div>
+          </div>
+
+          <div class="team-footer-compact-section">
+            <div class="team-footer-compact-nav">
+              <a href="about.html" class="team-footer-compact-link">チーム概要</a>
+              <a href="news.html" class="team-footer-compact-link">ニュース</a>
+              <a href="schedule.html" class="team-footer-compact-link">スケジュール</a>
+              <a href="activity.html" class="team-footer-compact-link">活動内容</a>
+              <a href="contact.html" class="team-footer-compact-link active">お問い合わせ</a>
+            </div>
+          </div>
+
+          <div class="team-footer-compact-section">
+            <div class="team-footer-compact-sns">
+              <a href="#" class="team-footer-compact-sns-link">
+                <span>📷</span>
+              </a>
+              <a href="#" class="team-footer-compact-sns-link">
+                <span>X</span>
+              </a>
+              <a href="#" class="team-footer-compact-sns-link">
+                <span>f</span>
+              </a>
+              <a href="mailto:info@aozora-fc.com" class="team-footer-compact-sns-link">
+                <span>✉️</span>
+              </a>
+            </div>
+            <div class="team-footer-compact-address">
+              <span>〒123-4567 東京都○○区△△町1-2-3</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-footer-compact-copyright">
+          <span>© 2024 青空FC. All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>

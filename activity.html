@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>活動内容 - サッカーチームHP</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ヘッダー（共通部分として後でPHPでインクルード） -->
+    <header class="team-header">
+        <div class="team-header-container">
+            <a href="index.html" class="team-logo">
+                <div class="team-logo-icon">⚽</div>
+                <span class="team-logo-text">青空FC</span>
+            </a>
+            <nav class="team-nav">
+                <a href="index.html" class="team-nav-link">ホーム</a>
+                <a href="about.html" class="team-nav-link">チームについて</a>
+                <a href="news.html" class="team-nav-link">ニュース</a>
+                <a href="schedule.html" class="team-nav-link">スケジュール</a>
+                <a href="activity.html" class="team-nav-link active">活動内容</a>
+                <a href="contact.html" class="team-nav-link">お問い合わせ</a>
+            </nav>
+            <button class="hamburger-button" aria-label="メニューを開く">
+                <span>メニュー</span>
+            </button>
+        </div>
+        <div class="mobile-menu-overlay" style="display: none;">
+            <div class="mobile-menu">
+                <div class="mobile-menu-header">
+                    <div class="team-logo">
+                        <div class="team-logo-icon">⚽</div>
+                        <span class="team-logo-text">青空FC</span>
+                    </div>
+                    <button class="mobile-menu-close" aria-label="メニューを閉じる">
+                        <span>閉じる</span>
+                    </button>
+                </div>
+                <nav class="mobile-menu-nav">
+                    <a href="index.html" class="mobile-menu-item">ホーム</a>
+                    <a href="about.html" class="mobile-menu-item">チームについて</a>
+                    <a href="news.html" class="mobile-menu-item">ニュース</a>
+                    <a href="schedule.html" class="mobile-menu-item">スケジュール</a>
+                    <a href="activity.html" class="mobile-menu-item active">活動内容</a>
+                    <a href="contact.html" class="mobile-menu-item">お問い合わせ</a>
+                </nav>
+                <div class="mobile-menu-footer">
+                    <p>未来のJリーガーを育てる地域クラブ</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="activity-page">
+        <!-- ヒーローセクション -->
+        <section class="activity-hero team-bg-gradient">
+            <div class="team-section-container">
+                <button class="back-button" onclick="window.location.href='index.html'">
+                    <span>&larr;</span>
+                    ホームに戻る
+                </button>
+                <h1 class="activity-hero-title">活動内容</h1>
+                <p class="activity-hero-subtitle">
+                    年代別・レベル別の充実したプログラム
+                </p>
+            </div>
+        </section>
+
+        <!-- 活動一覧 -->
+        <section class="team-section team-bg-white">
+            <div class="team-section-container">
+                <div class="activity-compact-grid">
+                    <!-- 活動カード1 -->
+                    <div class="activity-compact-card">
+                        <div class="activity-compact-image">
+                            <img src="https://images.unsplash.com/photo-1571068316344-75bc76f77890?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" alt="基礎技術トレーニング" class="activity-image-compact">
+                            <div class="activity-category-badge-compact" style="background-color: var(--team-grass-green);">
+                                <span>⚽</span> 練習
+                            </div>
+                        </div>
+                        <div class="activity-compact-content">
+                            <h3 class="activity-compact-title">基礎技術トレーニング</h3>
+                            <p class="activity-compact-description">ドリブル、パス、シュートなどの基本技術を重点的に指導します。</p>
+                            <div class="activity-compact-meta">
+                                <div class="activity-meta-item-compact">
+                                    <span><i class="icon-clock"></i></span>
+                                    <span>毎週土曜 9:00-11:00</span>
+                                </div>
+                            </div>
+                            <div class="activity-compact-details">
+                                <ul class="activity-details-list-compact">
+                                    <li>ボールタッチ練習</li>
+                                    <li>ドリブル技術向上</li>
+                                    <li>正確なパス練習</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 活動カード2 -->
+                    <div class="activity-compact-card">
+                        <div class="activity-compact-image">
+                            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" alt="チーム戦術練習" class="activity-image-compact">
+                            <div class="activity-category-badge-compact" style="background-color: var(--team-grass-green);">
+                                <span>⚽</span> 練習
+                            </div>
+                        </div>
+                        <div class="activity-compact-content">
+                            <h3 class="activity-compact-title">チーム戦術練習</h3>
+                            <p class="activity-compact-description">フォーメーションやポジショニングを学び、チーム連携を強化します。</p>
+                            <div class="activity-compact-meta">
+                                <div class="activity-meta-item-compact">
+                                    <span><i class="icon-clock"></i></span>
+                                    <span>毎週日曜 13:00-15:00</span>
+                                </div>
+                            </div>
+                            <div class="activity-compact-details">
+                                <ul class="activity-details-list-compact">
+                                    <li>フォーメーション練習</li>
+                                    <li>ポジショニング指導</li>
+                                    <li>連携プレー強化</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 活動カード3 -->
+                    <div class="activity-compact-card">
+                        <div class="activity-compact-image">
+                            <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" alt="試合・大会参加" class="activity-image-compact">
+                            <div class="activity-category-badge-compact" style="background-color: var(--team-main-blue);">
+                                <span>⚽</span> 試合
+                            </div>
+                        </div>
+                        <div class="activity-compact-content">
+                            <h3 class="activity-compact-title">公式試合・大会</h3>
+                            <p class="activity-compact-description">地域の公式大会やリーグ戦に参加し、実戦経験を積みます。</p>
+                            <div class="activity-compact-meta">
+                                <div class="activity-meta-item-compact">
+                                    <span><i class="icon-clock"></i></span>
+                                    <span>月2-4回</span>
+                                </div>
+                            </div>
+                            <div class="activity-compact-details">
+                                <ul class="activity-details-list-compact">
+                                    <li>春季・秋季リーグ戦</li>
+                                    <li>地域大会参加</li>
+                                    <li>カップ戦出場</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 活動カード4 -->
+                    <div class="activity-compact-card">
+                        <div class="activity-compact-image">
+                            <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" alt="サッカー教室" class="activity-image-compact">
+                            <div class="activity-category-badge-compact" style="background-color: var(--team-sub-blue);">
+                                <span>⚽</span> イベント
+                            </div>
+                        </div>
+                        <div class="activity-compact-content">
+                            <h3 class="activity-compact-title">サッカー教室</h3>
+                            <p class="activity-compact-description">未経験者や初心者を対象としたサッカー教室です。</p>
+                            <div class="activity-compact-meta">
+                                <div class="activity-meta-item-compact">
+                                    <span><i class="icon-clock"></i></span>
+                                    <span>月1回開催</span>
+                                </div>
+                            </div>
+                            <div class="activity-compact-details">
+                                <ul class="activity-details-list-compact">
+                                    <li>基本ルール説明</li>
+                                    <li>ボールに慣れる練習</li>
+                                    <li>簡単なゲーム</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- お問い合わせCTA -->
+        <section class="team-section team-bg-light">
+            <div class="team-section-container">
+                <div class="activity-cta-compact">
+                    <h2 class="activity-cta-title-compact">体験参加をお待ちしています</h2>
+                    <p class="activity-cta-description-compact">
+                        どの活動も体験参加が可能です。お気軽にお問い合わせください。
+                    </p>
+                    <a href="contact.html" class="activity-cta-button">
+                        体験を申し込む
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- フッター（共通部分として後でPHPでインクルード） -->
+    <footer class="team-footer-compact">
+      <div class="team-footer-compact-container">
+        <div class="team-footer-compact-main">
+          <div class="team-footer-compact-section">
+            <div class="team-footer-compact-logo">
+              <div class="team-footer-logo-icon">⚽</div>
+              <span class="team-footer-logo-text">青空FC</span>
+            </div>
+            <div class="team-footer-compact-contact">
+              <span>TEL: 090-1234-5678</span>
+              <span>Email: info@aozora-fc.com</span>
+            </div>
+          </div>
+
+          <div class="team-footer-compact-section">
+            <div class="team-footer-compact-nav">
+              <a href="index.html" class="team-footer-compact-link">ホーム</a>
+              <a href="about.html" class="team-footer-compact-link">チームについて</a>
+              <a href="news.html" class="team-footer-compact-link">ニュース</a>
+              <a href="schedule.html" class="team-footer-compact-link">スケジュール</a>
+              <a href="activity.html" class="team-footer-compact-link active">活動内容</a>
+              <a href="contact.html" class="team-footer-compact-link">お問い合わせ</a>
+            </div>
+          </div>
+
+          <div class="team-footer-compact-section">
+            <div class="team-footer-compact-sns">
+              <a href="#" class="team-footer-compact-sns-link">
+                <span>📷</span>
+              </a>
+              <a href="#" class="team-footer-compact-sns-link">
+                <span>X</span>
+              </a>
+              <a href="#" class="team-footer-compact-sns-link">
+                <span>f</span>
+              </a>
+              <a href="mailto:info@aozora-fc.com" class="team-footer-compact-sns-link">
+                <span>✉️</span>
+              </a>
+            </div>
+            <div class="team-footer-compact-address">
+              <span>〒123-4567 東京都○○区△△町1-2-3</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-footer-compact-copyright">
+          <span>© 2024 青空FC. All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>
