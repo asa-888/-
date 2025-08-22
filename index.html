@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サッカーチームHP</title>
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="team-header">
+        <div class="team-header-container">
+            <!-- ロゴ -->
+            <a href="#" class="team-logo">
+                <div class="team-logo-icon">⚽</div>
+                <span class="team-logo-text">青空FC</span>
+            </a>
+
+            <!-- デスクトップナビゲーション -->
+            <nav class="team-nav">
+                <a href="index.html" class="team-nav-link active">ホーム</a>
+                <a href="about.html" class="team-nav-link">チームについて</a>
+                <a href="news.html" class="team-nav-link">ニュース</a>
+                <a href="schedule.html" class="team-nav-link">スケジュール</a>
+                <a href="activity.html" class="team-nav-link">活動内容</a>
+                <a href="contact.html" class="team-nav-link">お問い合わせ</a>
+            </nav>
+
+            <!-- モバイルハンバーガーボタン -->
+            <button class="hamburger-button" aria-label="メニューを開く">
+                <!-- アイコンはJavaScriptで切り替えるか、CSSで背景画像を設定 -->
+                <section>
+                    <div class="btn-trigger" id="btn01">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </section>
+                  <!-- <div id="mask"></div> -->
+            </button>
+        </div>
+
+        <!-- モバイルメニューオーバーレイ -->
+        <div class="mobile-menu-overlay">
+            <!-- スライドアウトメニュー -->
+            <div class="mobile-menu">
+                <div class="mobile-menu-header">
+                    <div class="team-logo">
+                        <div class="team-logo-icon">⚽</div>
+                        <span class="team-logo-text">青空FC</span>
+                    </div>
+                    <button class="mobile-menu-close" aria-label="">
+                        <span></span>
+                    </button>
+                </div>
+
+                <nav class="mobile-menu-nav">
+                    <a href="index.html" class="mobile-menu-item active">ホーム</a>
+                    <a href="about.html" class="mobile-menu-item">チームについて</a>
+                    <a href="news.html" class="mobile-menu-item">ニュース</a>
+                    <a href="schedule.html" class="mobile-menu-item">スケジュール</a>
+                    <a href="activity.html" class="mobile-menu-item">活動内容</a>
+                    <a href="contact.html" class="mobile-menu-item">お問い合わせ</a>
+                </nav>
+
+                <div class="mobile-menu-footer">
+                    <p>未来のJリーガーを育てる地域クラブ</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main>
+        <!-- ヒーローセクション -->
+        <section class="team-hero">
+            <!-- 背景画像 -->
+            <div class="team-hero-bg">
+                <img src="img/hero-bg.jpg" alt="子どもたちがサッカーをしている風景" class="team-hero-image">
+                <div class="team-hero-overlay"></div>
+            </div>
+
+            <!-- コンテンツ -->
+            <div class="team-hero-content">
+                <h1 class="team-hero-title">
+                    本気で楽しむ、サッカーの毎日
+                </h1>
+                <p class="team-hero-subtitle">
+                    未来のJリーガーを育てる地域クラブ
+                </p>
+                <a href="contact.html" class="team-hero-cta">
+                    体験を申し込む
+                </a>
+            </div>
+
+            <!-- 装飾要素: グラデーションリング (アニメーションはJavaScriptで制御されます) -->
+            <div class="hero-decoration-ring"></div>
+
+            <!-- 装飾要素: 六角形 (アニメーションはJavaScriptで制御されます) -->
+            <div class="hero-decoration-hexagon"></div>
+
+            <!-- 装飾要素: 波形エフェクト (アニメーションはJavaScriptで制御されます) -->
+            <div class="hero-decoration-wave"></div>
+
+            <!-- 装飾要素: 円形グラデーション (アニメーションはJavaScriptで制御されます) -->
+            <div class="hero-decoration-circle-1"></div>
+            <div class="hero-decoration-circle-2"></div>
+
+            <!-- 流れるパーティクルはJavaScriptで実装されています -->
+        </section>
+
+        <!-- カテゴリセクション -->
+        <section class="team-section team-bg-white">
+            <div class="team-section-container">
+                <div class="team-section-header">
+                    <h2 class="team-section-title">年代別クラス</h2>
+                    <p class="team-section-subtitle">
+                        お子様の年齢に合わせた最適な指導プログラム
+                    </p>
+                </div>
+
+                <div class="team-category-grid">
+                    <div class="team-category-card">
+                        <div class="team-category-image">
+                            <img src="img/soccer-1.jpg" alt="U-6 キッズクラス">
+                        </div>
+                        <div class="team-category-content">
+                            <h3 class="team-category-title">U-6 キッズクラス</h3>
+                            <p class="team-category-description">楽しくボールと友達になろう</p>
+                            <p class="team-category-detail">4-6歳のお子様を対象とした入門クラスです。サッカーボールに慣れ親しみ、体を動かす楽しさを学びます。</p>
+                            <a href="#about" class="team-category-button">
+                                詳細を見る
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="team-category-card">
+                        <div class="team-category-image">
+                            <img src="img/soccer-2.jpg" alt="U-12 ジュニア">
+                        </div>
+                        <div class="team-category-content">
+                            <h3 class="team-category-title">U-12 ジュニア</h3>
+                            <p class="team-category-description">本格的な技術向上を目指そう</p>
+                            <p class="team-category-detail">小学生を対象とした本格的なサッカー指導クラスです。基本技術の習得から戦術理解まで、幅広く学習します。</p>
+                            <a href="#about" class="team-category-button">
+                                詳細を見る
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ニュースセクション -->
+        <section class="team-section team-bg-light">
+            <div class="team-section-container">
+                <div class="team-section-header">
+                    <h2 class="team-section-title">ニュース・結果</h2>
+                    <p class="team-section-subtitle">
+                        最新の試合結果やクラブからのお知らせ
+                    </p>
+                </div>
+
+                <div class="team-news-carousel">
+                    <div class="team-news-slider">
+                        <!-- ニュースカード1 -->
+                        <div class="team-news-slide">
+                            <a href="#news" class="team-news-card">
+                                <div class="team-news-image">
+                                    <img src="img/soccer-3.jpg" alt="春季大会で準優勝を獲得しました！">
+                                </div>
+                                <div class="team-news-content">
+                                    <span class="team-news-category">試合結果</span>
+                                    <h3 class="team-news-title">春季大会で準優勝を獲得しました！</h3>
+                                    <p class="team-news-date">2024.03.15</p>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- ニュースカード2 -->
+                        <div class="team-news-slide">
+                            <a href="#news" class="team-news-card">
+                                <div class="team-news-image">
+                                    <img src="img/soccer-4.jpg" alt="新しいコーチが加入しました">
+                                </div>
+                                <div class="team-news-content">
+                                    <span class="team-news-category">お知らせ</span>
+                                    <h3 class="team-news-title">新しいコーチが加入しました</h3>
+                                    <p class="team-news-date">2024.03.10</p>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- ニュースカード3 -->
+                        <div class="team-news-slide">
+                            <a href="#news" class="team-news-card">
+                                <div class="team-news-image">
+                                    <img src="img/soccer-6.jpg" alt="体験会を開催します">
+                                </div>
+                                <div class="team-news-content">
+                                    <span class="team-news-category">イベント</span>
+                                    <h3 class="team-news-title">体験会を開催します</h3>
+                                    <p class="team-news-date">2024.03.08</p>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- 無限スクロールの表現のため、必要に応じてニュースカードを複製して追加 -->
+                         <!-- ニュースカード1 (複製) -->
+                        <div class="team-news-slide">
+                            <a href="#news" class="team-news-card">
+                                <div class="team-news-image">
+                                    <img src="img/soccer-2.jpg" alt="春季大会で準優勝を獲得しました！">
+                                </div>
+                                <div class="team-news-content">
+                                    <span class="team-news-category">試合結果</span>
+                                    <h3 class="team-news-title">春季大会で準優勝を獲得しました！</h3>
+                                    <p class="team-news-date">2024.03.15</p>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- ニュースカード2 (複製) -->
+                        <div class="team-news-slide">
+                            <a href="#news" class="team-news-card">
+                                <div class="team-news-image">
+                                    <img src="img/coach1.jpg" alt="新しいコーチが加入しました">
+                                </div>
+                                <div class="team-news-content">
+                                    <span class="team-news-category">お知らせ</span>
+                                    <h3 class="team-news-title">新しいコーチが加入しました</h3>
+                                    <p class="team-news-date">2024.03.10</p>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- ニュースカード3 (複製) -->
+                        <div class="team-news-slide">
+                            <a href="#news" class="team-news-card">
+                                <div class="team-news-image">
+                                    <img src="img/soccer-1.jpg" alt="体験会を開催します">
+                                </div>
+                                <div class="team-news-content">
+                                    <span class="team-news-category">イベント</span>
+                                    <h3 class="team-news-title">体験会を開催します</h3>
+                                    <p class="team-news-date">2024.03.08</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-8">
+                    <a href="#news" class="schedule-view-all">
+                        すべてのニュースを見る
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- アクティビティセクション -->
+        <section class="team-section team-bg-white">
+            <div class="team-section-container">
+                <div class="team-section-header">
+                    <h2 class="team-section-title">活動内容</h2>
+                    <p class="team-section-subtitle">
+                        年間を通じて様々な活動でサッカーを楽しみます
+                    </p>
+                </div>
+
+                <div class="team-activity-grid-two-column">
+                    <!-- 活動内容カード1 -->
+                    <div class="team-activity-item">
+                        <a href="#activity">
+                            <div class="team-activity-image">
+                                <img src="img/soccer-3.jpg" alt="基礎技術トレーニング">
+                            </div>
+                            <h3 class="team-activity-title">基礎技術トレーニング</h3>
+                            <p class="team-activity-description">ドリブル、パス、シュートの基本技術を習得し、個人のスキルアップを図ります。</p>
+                        </a>
+                    </div>
+                    <!-- 活動内容カード2 -->
+                    <div class="team-activity-item">
+                        <a href="#activity">
+                            <div class="team-activity-image">
+                                <img src="img/soccer-7.jpg" alt="チーム戦術練習">
+                            </div>
+                            <h3 class="team-activity-title">チーム戦術練習</h3>
+                            <p class="team-activity-description">フォーメーションやポジショニングを学び、チーム連携を強化します。</p>
+                        </a>
+                    </div>
+                    <!-- 活動内容カード3 -->
+                    <div class="team-activity-item">
+                        <a href="#activity">
+                            <div class="team-activity-image">
+                                <img src="img/soccer-6.jpg" alt="試合・大会参加">
+                            </div>
+                            <h3 class="team-activity-title">試合・大会参加</h3>
+                            <p class="team-activity-description">地域の大会やリーグ戦に参加し、実戦経験を積みます。</p>
+                        </a>
+                    </div>
+                    <!-- 活動内容カード4 -->
+                    <div class="team-activity-item">
+                        <a href="#activity">
+                            <div class="team-activity-image">
+                                <img src="img/coach２.jpg" alt="サッカー教室">
+                            </div>
+                            <h3 class="team-activity-title">サッカー教室</h3>
+                            <p class="team-activity-description">初心者向けの体験教室で、楽しくサッカーの基本を学べます。</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="text-center mt-8">
+                    <a href="#activity" class="schedule-view-all">
+                        すべての活動を見る
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- スケジュールセクション -->
+        <section class="team-section team-bg-light">
+            <div class="team-section-container">
+                <div class="team-section-header">
+                    <h2 class="team-section-title">スケジュール</h2>
+                    <p class="team-section-subtitle">今月の練習・試合予定</p>
+                </div>
+
+                <div class="schedule-grid">
+                    <!-- スケジュールカード1 -->
+                    <div class="schedule-card">
+                        <div class="schedule-card-header">
+                            <div class="schedule-date">3/20</div>
+                            <div class="schedule-type" style="background-color: var(--team-main-blue);">
+                                <span>⚽</span> 試合
+                            </div>
+                        </div>
+                        <div class="schedule-card-content">
+                            <h3 class="schedule-title">春季練習試合</h3>
+                            <div class="schedule-details">
+                                <div class="schedule-detail-item">
+                                    <span><i class="icon-clock"></i></span>
+                                    <span>9:00-12:00</span>
+                                </div>
+                                <div class="schedule-detail-item">
+                                    <span><i class="icon-map-pin"></i></span>
+                                    <span>青空総合グラウンド</span>
+                                </div>
+                                <div class="schedule-detail-item">
+                                    <span><i class="icon-users"></i></span>
+                                    <span>U-12</span>
+                                </div>
+                            </div>
+                            <div class="schedule-opponent">vs グリーンFC</div>
+                        </div>
+                        <div class="schedule-card-footer">
+                            <span class="schedule-more">詳細を見る →</span>
+                        </div>
+                    </div>
+
+                    <!-- スケジュールカード2 -->
+                    <div class="schedule-card">
+                        <div class="schedule-card-header">
+                            <div class="schedule-date">3/22</div>
+                            <div class="schedule-type" style="background-color: var(--team-grass-green);">
+                                <span>⚽</span> 練習
+                            </div>
+                        </div>
+                        <div class="schedule-card-content">
+                            <h3 class="schedule-title">通常練習</h3>
+                            <div class="schedule-details">
+                                <div class="schedule-detail-item">
+                                    <span><i class="icon-clock"></i></span>
+                                    <span>10:00-12:00</span>
+                                </div>
+                                <div class="schedule-detail-item">
+                                    <span><i class="icon-map-pin"></i></span>
+                                    <span>青空総合グラウンド</span>
+                                </div>
+                                <div class="schedule-detail-item">
+                                    <span><i class="icon-users"></i></span>
+                                    <span>全学年</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="schedule-card-footer">
+                            <span class="schedule-more">詳細を見る →</span>
+                        </div>
+                    </div>
+
+                    <!-- スケジュールカード3 -->
+                    <div class="schedule-card">
+                        <div class="schedule-card-header">
+                            <div class="schedule-date">3/24</div>
+                            <div class="schedule-type" style="background-color: var(--team-main-blue);">
+                                <span>⚽</span> 試合
+                            </div>
+                        </div>
+                        <div class="schedule-card-content">
+                            <h3 class="schedule-title">春季大会</h3>
+                            <div class="schedule-details">
+                                <div class="schedule-detail-item">
+                                    <span><i class="icon-clock"></i></span>
+                                    <span>9:00-17:00</span>
+                                </div>
+                                <div class="schedule-detail-item">
+                                    <span><i class="icon-map-pin"></i></span>
+                                    <span>市民総合運動場</span>
+                                </div>
+                                <div class="schedule-detail-item">
+                                    <span><i class="icon-users"></i></span>
+                                    <span>U-10, U-12</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="schedule-card-footer">
+                            <span class="schedule-more">詳細を見る →</span>
+                        </div>
+                    </div>
+
+                    <!-- スケジュールカード4 -->
+                    <div class="schedule-card">
+                        <div class="schedule-card-header">
+                            <div class="schedule-date">3/27</div>
+                            <div class="schedule-type" style="background-color: var(--team-sub-blue);">
+                                <span>⚽</span> イベント
+                            </div>
+                        </div>
+                        <div class="schedule-card-content">
+                            <h3 class="schedule-title">体験会</h3>
+                            <div class="schedule-details">
+                                <div class="schedule-detail-item">
+                                    <span><i class="icon-clock"></i></span>
+                                    <span>14:00-16:00</span>
+                                </div>
+                                <div class="schedule-detail-item">
+                                    <span><i class="icon-map-pin"></i></span>
+                                    <span>青空総合グラウンド</span>
+                                </div>
+                                <div class="schedule-detail-item">
+                                    <span><i class="icon-users"></i></span>
+                                    <span>新入生対象</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="schedule-card-footer">
+                            <span class="schedule-more">詳細を見る →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="schedule-footer">
+                    <a href="#schedule" class="schedule-view-all">
+                        全スケジュールを見る
+                    </a>
+                </div>
+            </div>
+
+            <!-- 詳細モーダル (JavaScriptで表示/非表示を制御) -->
+            <div class="schedule-modal-overlay" style="display: none;">
+                <div class="schedule-modal">
+                    <div class="schedule-modal-header">
+                        <div class="schedule-modal-title">
+                            <div class="schedule-modal-type" style="background-color: var(--team-main-blue);">
+                                <span>⚽</span> 試合
+                            </div>
+                            <h3>春季練習試合</h3>
+                        </div>
+                        <button class="schedule-modal-close">
+                            <span>閉じる</span>
+                        </button>
+                    </div>
+
+                    <div class="schedule-modal-content">
+                        <div class="schedule-modal-info">
+                            <div class="schedule-modal-info-item">
+                                <span><i class="icon-calendar"></i></span>
+                                <span>3/20 (9:00-12:00)</span>
+                            </div>
+                            <div class="schedule-modal-info-item">
+                                <span><i class="icon-map-pin"></i></span>
+                                <span>青空総合グラウンド</span>
+                            </div>
+                            <div class="schedule-modal-info-item">
+                                <span><i class="icon-users"></i></span>
+                                <span>U-12</span>
+                            </div>
+                            <div class="schedule-modal-info-item">
+                                <span><i class="icon-trophy"></i></span>
+                                <span>vs グリーンFC</span>
+                            </div>
+                        </div>
+
+                        <div class="schedule-modal-description">
+                            <h4>詳細情報</h4>
+                            <p>春季大会に向けた練習試合です。</p>
+                        </div>
+
+                        <div class="schedule-modal-status">
+                            <span class="status-badge status-予定">予定</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instagramセクション -->
+        <section class="team-section team-bg-white">
+            <div class="team-section-container">
+                <div class="team-section-header">
+                    <h2 class="team-section-title">
+                        Instagram
+                    </h2>
+                    <p class="team-section-subtitle">
+                        日々の活動をInstagramで発信中
+                    </p>
+                </div>
+
+                <div class="instagram-grid">
+                    <!-- Instagram投稿1 -->
+                    <div class="overflow-hidden shadow-md hover:shadow-lg transition-shadow cursor-pointer">
+                        <div class="aspect-square">
+                            <img src="https://images.unsplash.com/photo-1622659099549-5eda1203b849?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGlsZHJlbiUyMGtpZHMlMjBwbGF5aW5nJTIwc29jY2VyJTIwZm9vdGJhbGx8ZW58MXx8fHwxNzU1MjM0MDg4fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Instagram投稿 1" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <p style="color: var(--team-text-gray); font-size: 0.875rem;">
+                                今日の練習お疲れさまでした！
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Instagram投稿2 -->
+                    <div class="overflow-hidden shadow-md hover:shadow-lg transition-shadow cursor-pointer">
+                        <div class="aspect-square">
+                            <img src="https://images.unsplash.com/photo-1623939145756-f9a920f80d04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGlsZHJlbiUyMHNvY2NlciUyMGZpZWxkJTIwZ3Jhc3N8ZW58MXx8fHwxNzU1MjM0MDg5fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Instagram投稿 2" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <p style="color: var(--team-text-gray); font-size: 0.875rem;">
+                                地域イベントに参加しました
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Instagram投稿3 -->
+                    <div class="overflow-hidden shadow-md hover:shadow-lg transition-shadow cursor-pointer">
+                        <div class="aspect-square">
+                            <img src="https://images.unsplash.com/photo-1612708426573-e7766d6925d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGlsZHJlbiUyMHNvY2NlciUyMGJhbGwlMjBvdXRkb29yfGVuMnwxNzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGlsZHJlbiUyMHNvY2NlciUyMGJhbGwlMjBvdXRkb29yfGVuMXx8fHwxNzU1MjM0MDkwfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Instagram投稿 3" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <p style="color: var(--team-text-gray); font-size: 0.875rem;">
+                                夏合宿の思い出
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="instagram-button">
+                        @○○soccerclub をフォロー
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- スポンサーセクション -->
+        <section class="team-section team-bg-gradient">
+            <div class="team-section-container">
+                <div class="team-section-header">
+                    <h2 class="team-section-title">
+                        スポンサー
+                    </h2>
+                    <p class="team-section-subtitle">
+                        いつもご支援いただき、ありがとうございます
+                    </p>
+                </div>
+
+                <div class="sponsor-grid">
+                    <!-- スポンサーカード1 -->
+                    <div class="bg-white shadow-md hover:shadow-lg transition-shadow cursor-pointer">
+                        <div class="p-6 text-center">
+                            <div class="mb-4" style="font-size: 3rem;">
+                                🏗️
+                            </div>
+                            <h3 style="color: var(--team-text-gray); font-size: 0.875rem; font-weight: 500;">
+                                ○○建設株式会社
+                            </h3>
+                        </div>
+                    </div>
+                    <!-- スポンサーカード2 -->
+                    <div class="bg-white shadow-md hover:shadow-lg transition-shadow cursor-pointer">
+                        <div class="p-6 text-center">
+                            <div class="mb-4" style="font-size: 3rem;">
+                                ⚽
+                            </div>
+                            <h3 style="color: var(--team-text-gray); font-size: 0.875rem; font-weight: 500;">
+                                △△スポーツ店
+                            </h3>
+                        </div>
+                    </div>
+                    <!-- スポンサーカード3 -->
+                    <div class="bg-white shadow-md hover:shadow-lg transition-shadow cursor-pointer">
+                        <div class="p-6 text-center">
+                            <div class="mb-4" style="font-size: 3rem;">
+                                🚗
+                            </div>
+                            <h3 style="color: var(--team-text-gray); font-size: 0.875rem; font-weight: 500;">
+                                □□自動車販売
+                            </h3>
+                        </div>
+                    </div>
+                    <!-- スポンサーカード4 -->
+                    <div class="bg-white shadow-md hover:shadow-lg transition-shadow cursor-pointer">
+                        <div class="p-6 text-center">
+                            <div class="mb-4" style="font-size: 3rem;">
+                                🏥
+                            </div>
+                            <h3 style="color: var(--team-text-gray); font-size: 0.875rem; font-weight: 500;">
+                                ◇◇病院
+                            </h3>
+                        </div>
+                    </div>
+                    <!-- スポンサーカード5 -->
+                    <div class="bg-white shadow-md hover:shadow-lg transition-shadow cursor-pointer">
+                        <div class="p-6 text-center">
+                            <div class="mb-4" style="font-size: 3rem;">
+                                🍽️
+                            </div>
+                            <h3 style="color: var(--team-text-gray); font-size: 0.875rem; font-weight: 500;">
+                                ☆☆レストラン
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <div class="inline-block bg-white/80 backdrop-blur p-6 rounded-md shadow-md">
+                        <h3 class="mb-4" style="color: var(--team-main-blue); font-weight: bold;">
+                            スポンサー募集中
+                        </h3>
+                        <p class="mb-4" style="color: var(--team-text-gray);
+">
+                            地域の子どもたちの成長を一緒に支援しませんか？
+                        </p>
+                        <a href="#contact" class="sponsor-cta-button">
+                            詳細はこちら
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="team-footer-compact">
+      <div class="team-footer-compact-container">
+        <!-- メインフッターコンテンツ - 横並び -->
+        <div class="team-footer-compact-main">
+          <!-- ロゴ・連絡先 -->
+          <div class="team-footer-compact-section">
+            <div class="team-footer-compact-logo">
+              <div class="team-footer-logo-icon">⚽</div>
+              <span class="team-footer-logo-text">青空FC</span>
+            </div>
+            <div class="team-footer-compact-contact">
+              <span>TEL: 090-1234-5678</span>
+              <span>Email: info@aozora-fc.com</span>
+            </div>
+          </div>
+
+          <!-- ナビゲーション -->
+          <div class="team-footer-compact-section">
+            <div class="team-footer-compact-nav">
+              <a href="about.html" class="team-footer-compact-link">チーム概要</a>
+              <a href="news.html" class="team-footer-compact-link">ニュース</a>
+              <a href="schedule.html" class="team-footer-compact-link">スケジュール</a>
+              <a href="activity.html" class="team-footer-compact-link">活動内容</a>
+              <a href="contact.html" class="team-footer-compact-link">お問い合わせ</a>
+            </div>
+          </div>
+
+          <!-- SNS・住所 -->
+          <div class="team-footer-compact-section">
+            <div class="team-footer-compact-sns">
+              <a href="#" class="team-footer-compact-sns-link">
+                <span>📷</span>
+              </a>
+              <a href="#" class="team-footer-compact-sns-link">
+                <span>X</span>
+              </a>
+              <a href="#" class="team-footer-compact-sns-link">
+                <span>f</span>
+              </a>
+              <a href="mailto:info@aozora-fc.com" class="team-footer-compact-sns-link">
+                <span>✉️</span>
+              </a>
+            </div>
+            <div class="team-footer-compact-address">
+              <span>〒123-4567 東京都○○区△△町1-2-3</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- コピーライト -->
+        <div class="team-footer-compact-copyright">
+          <span>© 2024 青空FC. All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
+<script src="script.js"></script>
+</body>
+</html>
