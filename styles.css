@@ -1,0 +1,2036 @@
+
+/* サッカーチームカラーパレット */
+
+:root {
+  --team-main-blue: #2c70d8;
+  --team-sub-blue: #a9c7f5;
+  --team-grass-green: #87b96d;
+  --team-background-white: #ffffff;
+  --team-text-gray: #333333;
+  --team-light-gray: #666666;
+}
+html, body {
+  overflow-x: hidden;
+}
+a{
+  text-decoration: none;
+}
+
+/* ヘッダー */
+.team-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.team-header-container {
+  display: flex;
+  height: 4rem;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.team-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.team-logo:hover {
+  opacity: 0.8;
+}
+
+.team-logo-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--team-main-blue);
+  color: white;
+}
+
+.team-logo-text {
+  color: var(--team-main-blue);
+  font-weight: 600;
+}
+
+.team-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.team-nav-link {
+  color: var(--team-text-gray);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0.5rem ;
+  border-radius: 0.375rem;
+}
+
+.team-nav-link:hover {
+  background-color: var(--team-sub-blue);
+  color: var(--team-main-blue);
+}
+
+/* ハンバーガーメニュー */
+.hamburger-button {
+  display: none; /* デスクトップでは非表示 */
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  background: transparent;
+  color: var(--team-main-blue);
+  cursor: pointer;
+  border-radius: 0.375rem;
+  transition: background-color 0.3s ease;
+  position: relative; /* 子要素のposition: absolute;のため */
+  z-index: 80; /* メニューよりも手前に */
+}
+
+.hamburger-button span {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--team-main-blue);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  
+}
+
+.hamburger-button span:nth-child(1) {
+  top: 0.75rem;
+}
+
+.hamburger-button span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger-button span:nth-child(3) {
+  bottom: 0.75rem;
+}
+
+/* アクティブ時のアニメーション */
+.hamburger-button.is-active span:nth-child(1) {
+  transform: translateY(0.375rem) rotate(45deg);
+}
+
+.hamburger-button.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-button.is-active span:nth-child(3) {
+  transform: translateY(-0.375rem) rotate(-45deg);
+}
+
+.hamburger-button:hover {
+  background-color: var(--team-sub-blue);
+}
+
+.is-active #mask {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--team-sub-blue);
+  opacity: 0.8;
+  z-index: 10;
+  cursor: pointer;
+}
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 60;
+  display: flex; /* Flexboxで中央寄せするため */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-menu-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -280px; /* 修正: メニュー幅分だけ右にずらす */
+  bottom: 0;
+  width: 280px;
+  background: var(--team-background-white);
+  z-index: 70;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease; /* スライドアニメーション */
+}
+
+.mobile-menu-overlay.is-active .mobile-menu {
+  transform: translateX(-280px); /* 修正: 左にメニュー幅分移動 */
+}
+
+.mobile-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background: transparent;
+  color: var(--team-text-gray);
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+.mobile-menu-close:hover {
+  background-color:#a9c7f591;
+}
+
+.mobile-menu-nav {
+  flex: 1;
+  padding: 1rem 0;
+  background-color:var(--team-sub-blue) ;
+  opacity: 0.8;
+}
+
+.mobile-menu-item {
+  display: block;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: none;
+  background: transparent;
+  color: var(--team-text-gray);
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-left: 3px solid transparent;
+}
+
+.mobile-menu-item:hover {
+  background-color: var(--team-sub-blue);
+  border-left-color: var(--team-main-blue);
+}
+
+.mobile-menu-item.active {
+  background-color: var(--team-main-blue);
+  color: white;
+  border-left-color: var(--team-grass-green);
+}
+
+.mobile-menu-footer {
+  padding: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--team-light-gray);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* 戻るボタン */
+/* From Uiverse.io by portseif */ 
+.back-button {
+  align-items: center;
+  background-color: transparent;
+  color:var(--team-main-blue);
+  cursor: pointer;
+  display: flex;
+  font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: none;
+  text-transform: uppercase;
+  outline: 0;
+  border: 0;
+  padding: 1rem;
+}
+
+.back-button:before {
+  background-color: var(--team-main-blue);
+  content: "";
+  display: inline-block;
+  height: 1px;
+  margin-right: 10px;
+  transition: all .42s cubic-bezier(.25,.8,.25,1);
+  width: 0;
+}
+
+.back-button:hover:before {
+  background-color:var(--team-main-blue);
+  width: 3rem;
+}
+
+/* ページヒーロー共通 */
+.contact-hero,
+.about-hero,
+.news-hero,
+.schedule-hero,
+.activity-hero {
+  padding: 6rem 0 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-hero-content,
+.about-hero-content,
+.news-hero-content,
+.schedule-hero-content,
+.activity-hero-content {
+  text-align: center;
+  color: white;
+  position: relative;
+  z-index: 10;
+}
+
+.contact-hero-title,
+.about-hero-title,
+.news-hero-title,
+.schedule-hero-title,
+.activity-hero-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.contact-hero-subtitle,
+.about-hero-subtitle,
+.news-hero-subtitle,
+.schedule-hero-subtitle,
+.activity-hero-subtitle {
+  font-size: 1.125rem;
+  opacity: 0.9;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* コンパクトスタイル */
+.compact-section-title {
+  color: var(--team-main-blue);
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.compact-description {
+  color: var(--team-text-gray);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* About Page コンパクト */
+.about-stats-compact {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.overview-image-compact {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.values-grid-compact {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .values-grid-compact {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.value-card-compact {
+  text-align: center;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.value-card-compact:hover {
+  transform: translateY(-3px);
+}
+
+.value-icon-compact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  background: var(--team-sub-blue);
+  color: var(--team-main-blue);
+  border-radius: 50%;
+  margin: 0 auto 0.75rem;
+}
+
+.value-title-compact {
+  color: var(--team-main-blue);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.value-description-compact {
+  color: var(--team-text-gray);
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+
+.coaches-grid-compact {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.coach-card-compact {
+  background: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.coach-card-compact:hover {
+  transform: translateY(-3px);
+}
+
+.coach-image-compact {
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+.coach-photo-compact {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.coach-info-compact {
+  padding: 1rem;
+  text-align: center;
+}
+
+.coach-name-compact {
+  color: var(--team-main-blue);
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+}
+
+.coach-role-compact {
+  color: var(--team-grass-green);
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.coach-experience-compact {
+  color: var(--team-light-gray);
+  font-size: 0.75rem;
+}
+
+/* Activity Page コンパクト */
+.activity-compact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .activity-compact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .activity-compact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.activity-compact-card {
+  background: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.activity-compact-card:hover {
+  transform: translateY(-3px);
+}
+
+.activity-compact-image {
+  position: relative;
+  aspect-ratio: 16/10;
+}
+
+.activity-image-compact {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.activity-category-badge-compact {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 1rem;
+  color: white;
+  font-size: 0.625rem;
+  font-weight: 500;
+}
+
+.activity-compact-content {
+  padding: 1.5rem;
+}
+
+.activity-compact-title {
+  color: var(--team-main-blue);
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+.activity-compact-description {
+  color: var(--team-text-gray);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.activity-compact-meta {
+  margin-bottom: 1rem;
+}
+
+.activity-meta-item-compact {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--team-light-gray);
+  font-size: 0.75rem;
+}
+
+.activity-compact-details {
+  margin-top: 1rem;
+}
+
+.activity-details-list-compact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.activity-details-list-compact li {
+  padding: 0.125rem 0;
+  color: var(--team-text-gray);
+  position: relative;
+  padding-left: 0.75rem;
+  font-size: 0.75rem;
+}
+
+.activity-details-list-compact li:before {
+  content: "•";
+  color: var(--team-grass-green);
+  position: absolute;
+  left: 0;
+}
+
+.activity-cta-compact {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.activity-cta-title-compact {
+  color: var(--team-main-blue);
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
+}
+
+.activity-cta-description-compact {
+  color: var(--team-text-gray);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.activity-cta-button {
+  padding: 1rem 2rem;
+  background: var(--team-grass-green);
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.activity-cta-button:hover {
+  background: #75a55a;
+  transform: translateY(-2px);
+}
+
+/* 活動内容セクション 2カラム */
+.team-activity-grid-two-column {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.team-activity-item {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.team-activity-item:hover {
+  transform: translateY(-5px);
+}
+
+.team-activity-image {
+  aspect-ratio: 3/2;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.team-activity-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.team-activity-item:hover .team-activity-image img {
+  transform: scale(1.05);
+}
+
+.team-activity-title {
+  color: var(--team-main-blue);
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.team-activity-description {
+  color: var(--team-text-gray);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* ニュースセクション - カルーセル */
+.team-news-carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.team-news-slider {
+  display: flex;
+  animation: slide-infinite 20s linear infinite;
+}
+
+.team-news-slide {
+  flex: 0 0 33.333%;
+  padding: 0 1rem;
+}
+
+@keyframes slide-infinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.team-news-carousel:hover .team-news-slider {
+  animation-play-state: paused;
+}
+
+.team-news-card {
+  overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  background: white;
+  cursor: pointer;
+}
+
+.team-news-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.team-news-image {
+  aspect-ratio: 4/3;
+}
+
+.team-news-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-news-content {
+  padding: 1.5rem;
+}
+
+.team-news-category {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background-color: var(--team-sub-blue);
+  color: var(--team-main-blue);
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.team-news-title {
+  color: var(--team-text-gray);
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.team-news-date {
+  color: var(--team-light-gray);
+  font-size: 0.875rem;
+}
+
+/* 既存のスケジュールスタイルを小さく調整 */
+.schedule-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .schedule-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .schedule-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.schedule-card {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.schedule-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.schedule-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.schedule-date {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--team-main-blue);
+}
+
+.schedule-type {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.125rem 0.5rem;
+  border-radius: 1rem;
+  color: white;
+  font-size: 0.625rem;
+  font-weight: 500;
+}
+
+.schedule-title {
+  color: var(--team-text-gray);
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.schedule-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.schedule-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--team-light-gray);
+  font-size: 0.75rem;
+}
+
+.schedule-opponent {
+  color: var(--team-main-blue);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.schedule-card-footer {
+  text-align: right;
+}
+
+.schedule-more {
+  color: var(--team-grass-green);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* 既存のスタイルを継続 */
+.team-hero {
+  position: relative;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.team-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.team-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.team-hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: white;
+  padding: 0 5rem;
+  max-width: 1440px;
+  
+}
+
+.team-hero-title {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+  font-weight: bold;
+  line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.team-hero-subtitle {
+  margin-bottom: 2rem;
+  font-size: 1.25rem;
+  font-weight: normal;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  opacity: 0; /* Initially hidden for fade-in */
+  animation: fadeInText 1.5s forwards;
+  animation-delay: 1s; /* Delay the subtitle animation slightly */
+}
+
+.team-hero-cta {
+  display: inline-block;
+  width: 250px;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 60px;
+  outline: none;
+  color: #FFFFFF;
+  background: linear-gradient(to right, #381bfbcf, #fe3d3df0);
+  background-position: 0% 50%;
+  background-size: 200% auto;
+  transition: all 0.6s ease-out;
+  margin-top: 2rem; /* Ensure button visibility */
+  opacity: 0; /* Initially hidden for fade-in */
+  animation: fadeInText 1.5s forwards;
+  animation-delay: 2s; /* Delay the button animation further */
+}
+.team-hero-cta:hover {
+  color: #fff;
+  background-position: 100% 51%;
+}
+
+/* セクション共通 */
+h1.team-hero-title{
+  border: none;
+  
+}
+h1{
+  border-bottom: solid #1a1a1a70;
+}
+/* google fonts */
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap'); */
+
+.text {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  /* font-family: "Roboto Mono", monospace; */
+  font-size: 5vw;
+  font-weight: 700;
+  text-transform: uppercase;
+  opacity: 0; /* Initially hidden for fade-in */
+  animation: fadeInText 1.5s forwards; /* Apply fade-in animation */
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.text.is-active {
+  --y: 0;
+}
+
+.char {
+  display: inline-block;
+  transform: translateY(var(--y, 110%));
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.4s cubic-bezier(0.77, 0, 0.175, 1); /* Add opacity to transition */
+  transition-delay: calc(0.04s * var(--char-index));
+  opacity: 0; /* Initially hidden for char fade-in */
+}
+
+.text.is-active .char {
+  opacity: 1; /* Fade in when active */
+}
+
+/* 初期CSS */
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #3c3c3c00;
+}
+
+.visuallyHidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.schedule-full-card{
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  padding-bottom: fit-content;
+  /* display: flex;
+  align-items: baseline;
+  justify-content: space-between; */
+}
+
+.team-section {
+  padding: 4rem 0;
+}
+
+.team-section-container {
+ 
+  padding: 0 5rem;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.team-section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.team-section-title {
+  color: var(--team-main-blue);
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.team-section-subtitle {
+  color: var(--team-text-gray);
+  font-size: 1rem;
+}
+
+/* カテゴリーセクション */
+.team-category-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .team-category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.team-category-card {
+  overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.team-category-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.team-category-image {
+  aspect-ratio: 16/9;
+}
+
+.team-category-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-category-content {
+  padding: 1.5rem;
+}
+
+.team-category-title {
+  color: var(--team-main-blue);
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.team-category-description {
+  color: var(--team-grass-green);
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.team-category-detail {
+  color: var(--team-text-gray);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.team-category-button {
+  display: flex;
+  justify-content: center;
+  border: 1px solid var(--team-main-blue);
+  color: var(--team-main-blue);
+  background: transparent;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.team-category-button:hover {
+  background-color: var(--team-main-blue);
+  color: white;
+}
+
+/* 共通ボタンスタイル */
+.text-center,
+.schedule-footer{
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+
+}
+.schedule-view-all,
+.activity-cta-button {
+  padding: 1rem 2rem;
+  background: var(--team-main-blue);
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.schedule-view-all:hover,
+.activity-cta-button:hover {
+  background: #1f5bb8;
+  transform: translateY(-2px);
+}
+
+.activity-cta-button {
+  background: var(--team-grass-green);
+}
+
+.activity-cta-button:hover {
+  background: #75a55a;
+}
+
+/* 背景色バリエーション */
+.team-bg-white {
+  background-color: var(--team-background-white);
+}
+
+.team-bg-light {
+  background-color: #f8fafc;
+}
+
+.team-bg-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--team-sub-blue) 0%,
+    #e3f2fd 100%
+  );
+}
+
+/* コンパクトフッター */
+.team-footer-compact {
+  background-color: #1a1a1a;
+  color: white;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.team-footer-compact-container {
+  padding: 2rem 5rem 1rem;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.team-footer-compact-main {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.team-footer-compact-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.team-footer-compact-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.team-footer-logo-icon {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--team-main-blue);
+  color: white;
+  font-size: 1rem;
+}
+
+.team-footer-logo-text {
+  color: white;
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.team-footer-compact-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.team-footer-compact-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2rem;
+}
+
+.team-footer-compact-link {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 0;
+}
+
+.team-footer-compact-link:hover {
+  color: var(--team-sub-blue);
+}
+
+.team-footer-compact-sns {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.team-footer-compact-sns-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.team-footer-compact-sns-link:hover {
+  background-color: var(--team-main-blue);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.team-footer-compact-address {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.team-footer-compact-copyright {
+  text-align: center;
+  padding-top: 1rem;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 999px) {
+  .team-header-container {
+    display: flex;
+    height: 4rem;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  /* レスポンシブ対応 */
+  @media (max-width: 999px) {
+    .team-header-container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .team-nav { /* デスクトップナビゲーションを非表示 */
+      display: none;
+    }
+
+    .hamburger-button { /* ハンバーガーボタンを表示 */
+      display: flex;
+    }
+
+    /* ハンバーガーメニューがアクティブなときにロゴを非表示 */
+    /* team-header-containerにis-activeクラスが付与された場合、その中のteam-logoを非表示 */
+    .team-header-container.is-active .team-logo {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .mobile-menu-footer{
+     display: none; 
+    }
+
+    .mobile-menu {
+      background: var(--team-background-white); /* 背景色を修正 */
+    }
+
+    .team-activity-grid-two-column,
+    .activity-compact-grid,
+    .values-grid-compact,
+    .coaches-grid-compact {
+      grid-template-columns: 1fr;
+    }
+
+    .schedule-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-stats-compact{
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+
+    /* コンパクトフッターのモバイル対応 */
+    .team-footer-compact-container {
+      padding: 1.5rem 1rem 1rem;
+    }
+
+    .team-footer-compact-main {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      text-align: center;
+    }
+
+    .team-footer-compact-nav {
+      justify-content: center;
+      gap: 1rem 1.5rem;
+    }
+
+    .team-footer-compact-sns {
+      justify-content: center;
+    }
+
+    .team-footer-compact-contact,
+    .team-footer-compact-address {
+      text-align: center;
+    }
+  }
+}
+  /* デスクトップでの表示制御 */
+@media (min-width: 1000px) {
+  .team-nav {
+    display: flex;
+  }
+
+  .hamburger-button {
+    display: none;
+  }
+
+  /* Instagramセクション */
+  .team-section.team-bg-white .instagram-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* スポンサーセクション */
+  .team-section.team-bg-gradient .sponsor-grid {
+    grid-template-columns: repeat(5, 1fr);
+    border-radius: 10px;
+  }
+}
+.bg-white{
+  padding: 5px;
+  border-radius: 10px;
+}
+/* ヒーローセクション 装飾要素 */
+.hero-decoration-ring {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, var(--team-main-blue), var(--team-grass-green), var(--team-sub-blue), var(--team-main-blue));
+  opacity: 0.3;
+  z-index: 5;
+  filter: blur(20px);
+  animation: sparkle 3s infinite alternate ease-in-out; /* Add sparkle animation */
+}
+
+.hero-decoration-hexagon {
+  position: absolute;
+  bottom: 40%;
+  left: 5%;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #87B96D, #A9C7F5);
+  opacity: 0.4;
+  z-index: 5;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  filter: blur(30px);
+  animation: sparkle 3.5s infinite alternate-reverse ease-in-out; /* Add sparkle animation */
+}
+
+.hero-decoration-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(169, 199, 245, 0.1) 25%, 
+    rgba(135, 185, 109, 0.1) 50%, 
+    rgba(44, 112, 216, 0.1) 75%, 
+    transparent 100%);
+  z-index: 5;
+  filter: blur(1px);
+  animation: waveSparkle 4s infinite linear; /* Add wave sparkle animation */
+}
+
+.hero-decoration-circle-1 {
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(135, 185, 109, 0.4) 0%, transparent 70%);
+  z-index: 5;
+  animation: sparkle 2.8s infinite alternate ease-in-out; /* Add sparkle animation */
+}
+
+.hero-decoration-circle-2 {
+  position: absolute;
+  top: 60%;
+  right: 8%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(169, 199, 245, 0.5) 0%, transparent 70%);
+  z-index: 5;
+  animation: sparkle 3.2s infinite alternate-reverse ease-in-out; /* Add sparkle animation */
+}
+
+/* Sparkle Keyframe Animation */
+@keyframes sparkle {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+}
+
+/* Wave Sparkle Keyframe Animation */
+@keyframes waveSparkle {
+  0% {
+    background-position: 0% 50%;
+    opacity: 0.1;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.4;
+  }
+  100% {
+    background-position: 200% 50%;
+    opacity: 0.1;
+  }
+}
+
+/* Instagramボタン */
+.instagram-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  background-color: #E4405F;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.instagram-button:hover {
+  background-color: #c23351;
+  transform: translateY(-2px);
+}
+
+/* スポンサーセクション CTAボタン */
+.sponsor-cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  margin-inline:28%;
+  background-color: var(--team-grass-green);
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.sponsor-cta-button:hover {
+  background-color: #75a55a;
+  transform: translateY(-2px);
+}
+
+/* お問い合わせページ */
+.contact-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.contact-main-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .contact-main-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.contact-form-title,
+.contact-info-title {
+  color: var(--team-main-blue);
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .contact-form-title,
+  .contact-info-title {
+    text-align: left;
+  }
+}
+
+.contact-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.contact-form .form-label {
+  display: block;
+  color: var(--team-text-gray);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.contact-form .form-input,
+.contact-form .form-select,
+.contact-form .form-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  color: var(--team-text-gray);
+  background-color: white;
+}
+
+.contact-form .form-input:focus,
+.contact-form .form-select:focus,
+.contact-form .form-textarea:focus {
+  outline: none;
+  border-color: var(--team-main-blue);
+  box-shadow: 0 0 0 2px rgba(44, 112, 216, 0.2);
+}
+
+.contact-form .form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-form .submit-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--team-main-blue);
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-form .submit-button:hover {
+  background-color: #1f5bb8;
+  transform: translateY(-2px);
+}
+
+.contact-info-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .contact-info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-info-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.contact-info-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: var(--team-sub-blue);
+  color: var(--team-main-blue);
+  font-size: 1.5rem;
+}
+
+.contact-info-content h3 {
+  color: var(--team-main-blue);
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.contact-info-content p {
+  color: var(--team-text-gray);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.contact-info-content span {
+  color: var(--team-light-gray);
+  font-size: 0.8rem;
+}
+
+.contact-note {
+  background: #e3f2fd;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border-left: 5px solid var(--team-main-blue);
+}
+
+.contact-note h3 {
+  color: var(--team-main-blue);
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+}
+
+.contact-note p {
+  color: var(--team-text-gray);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Aboutページ */
+.about-overview-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .about-overview-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.about-overview-content {
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .about-overview-content {
+    text-align: left;
+  }
+}
+
+.about-overview-image {
+  display: flex;
+  justify-content: center;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  color: var(--team-main-blue);
+  font-size: 2.25rem;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  color: var(--team-light-gray);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* ニュースページ */
+.news-filter-section {
+  padding: 2rem 0;
+  background-color: var(--team-background-white);
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.news-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.news-filter .filter-button {
+  padding: 0.5rem 1.25rem;
+  border: 1px solid var(--team-main-blue);
+  border-radius: 9999px;
+  background-color: transparent;
+  color: var(--team-main-blue);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.news-filter .filter-button:hover {
+  background-color: var(--team-sub-blue);
+  color: var(--team-main-blue);
+}
+.all{
+  background-color:none;
+}
+.news-filter .filter-button.active {
+  background-color: var(--team-main-blue);
+  color: white;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .news-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .news-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.news-card {
+  background: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.news-card-image {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.news-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.news-category-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background-color: var(--team-main-blue);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.news-card-content {
+  padding: 1.5rem;
+}
+
+.news-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--team-light-gray);
+}
+
+.news-date {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.news-card-title {
+  color: var(--team-main-blue);
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.news-card-excerpt {
+  color: var(--team-text-gray);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3; /* 標準プロパティを追加 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.news-card-content-text {
+  color: var(--team-text-gray);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* スケジュールページ */
+.schedule-full-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .schedule-full-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .schedule-full-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.schedule-full-card {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.schedule-full-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.schedule-full-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.schedule-full-date {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: var(--team-main-blue);
+}
+
+.schedule-full-type {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.schedule-full-title {
+  color: var(--team-text-gray);
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.schedule-full-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.schedule-full-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--team-light-gray);
+  font-size: 0.875rem;
+}
+
+.schedule-full-description {
+  color: var(--team-text-gray);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.schedule-full-status .status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: white;
+}
+
+.schedule-full-status .status-予定 {
+  background-color: var(--team-grass-green);
+}
+
+.schedule-full-status .status-中止 {
+  background-color: #ef4444; /* red-500 */
+}
+
+.schedule-full-status .status-延期 {
+  background-color: #f59e0b; /* amber-500 */
+}
+
+.schedule-full-status .status-完了 {
+  background-color: #3b82f6; /* blue-500 */
+}
+
+/* Instagramセクション用グリッド */
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* レスポンシブ前から2カラム */
+  gap: 2rem;
+}
+img {
+  border-style: none;
+  object-fit: contain;
+  width: -webkit-fill-available;
+}
+/* スポンサーセクション用グリッド */
+.sponsor-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* レスポンシブ前から4カラム */
+  gap: 1.5rem;
+  
+}
+
+@media (min-width: 1000px) {
+  .instagram-grid {
+    grid-template-columns: repeat(3, 1fr); /* 1000px以上で3カラム */
+  }
+
+  .sponsor-grid {
+    grid-template-columns: repeat(5, 1fr); /* 1000px以上で5カラム */
+  }
+}

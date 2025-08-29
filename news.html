@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ニュース・結果 - サッカーチームHP</title>
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -23,10 +25,16 @@
                 <a href="contact.html" class="team-nav-link">お問い合わせ</a>
             </nav>
             <button class="hamburger-button" aria-label="メニューを開く">
-                <span>メニュー</span>
+                <section>
+                    <div class="btn-trigger" id="btn01">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </section>
             </button>
         </div>
-        <div class="mobile-menu-overlay" style="display: none;">
+        <div class="mobile-menu-overlay">
             <div class="mobile-menu">
                 <div class="mobile-menu-header">
                     <div class="team-logo">
@@ -34,7 +42,7 @@
                         <span class="team-logo-text">青空FC</span>
                     </div>
                     <button class="mobile-menu-close" aria-label="メニューを閉じる">
-                        <span>閉じる</span>
+                        <span></span>
                     </button>
                 </div>
                 <nav class="mobile-menu-nav">
@@ -56,40 +64,43 @@
         <!-- ヒーローセクション -->
         <section class="news-hero team-bg-gradient">
             <div class="team-section-container">
-                <button class="back-button" onclick="window.location.href='index.html'">
+                <!-- <button class="back-button" onclick="window.location.href='index.html'">
                     <span>&larr;</span>
                     ホームに戻る
-                </button>
+                </button> -->
                 <h1 class="news-hero-title">ニュース・結果</h1>
                 <p class="news-hero-subtitle">
                     最新の試合結果やクラブからのお知らせをご覧ください
                 </p>
-            </div>
+                <button class="back-button">
+                    <a href="index.html">back</a>
+                </button>
+        </div>
         </section>
 
         <!-- カテゴリーフィルター -->
         <section class="news-filter-section team-bg-white">
             <div class="team-section-container">
                 <div class="news-filter">
-                    <button class="filter-button active">すべて</button>
-                    <button class="filter-button">試合結果</button>
-                    <button class="filter-button">お知らせ</button>
-                    <button class="filter-button">イベント</button>
-                    <button class="filter-button">試合予定</button>
+                    <button class="filter-button"><a href="#">すべて</a></button>
+                    <button class="filter-button"><a href="#results">試合結果</a></button>
+                    <button class="filter-button"><a href="#new">お知らせ</a></button>
+                    <button class="filter-button"><a href="#event">イベント</a></button>
+                    <button class="filter-button"><a href="#game">試合予定</a></button>
                 </div>
             </div>
         </section>
 
         <!-- ニュース一覧 -->
-        <section class="team-section team-bg-light">
+        <section  class="team-section team-bg-light">
             <div class="team-section-container">
                 <div class="news-grid">
                     <!-- ニュースカード1 -->
-                    <article class="news-card">
+                    <article class="news-card" id="results" >
                         <div class="news-card-image">
-                            <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" alt="春季大会で準優勝を獲得しました！" class="news-image">
-                            <div class="news-category-badge">
-                                <span>🏷️</span>
+                            <img src="img/soccer-6.jpg" alt="春季大会で準優勝を獲得しました！" class="news-image">
+                            <div  class="news-category-badge" >
+                                <span >🏷️</span>
                                 試合結果
                             </div>
                         </div>
@@ -107,10 +118,10 @@
                     </article>
 
                     <!-- ニュースカード2 -->
-                    <article class="news-card">
+                    <article class="news-card" id="new">
                         <div class="news-card-image">
-                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" alt="新しいコーチが加入しました" class="news-image">
-                            <div class="news-category-badge">
+                            <img src="img/coach3.jpg" alt="新しいコーチが加入しました" class="news-image">
+                            <div class="news-category-badge" >
                                 <span>🏷️</span>
                                 お知らせ
                             </div>
@@ -129,10 +140,10 @@
                     </article>
 
                     <!-- ニュースカード3 -->
-                    <article class="news-card">
+                    <article class="news-card" id="event">
                         <div class="news-card-image">
-                            <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" alt="体験会を開催します" class="news-image">
-                            <div class="news-category-badge">
+                            <img src="img/soccer-8.jpg" alt="体験会を開催します" class="news-image">
+                            <div class="news-category-badge ">
                                 <span>🏷️</span>
                                 イベント
                             </div>
@@ -151,9 +162,9 @@
                     </article>
 
                      <!-- ニュースカード4 -->
-                     <article class="news-card">
+                     <article class="news-card" id="game">
                         <div class="news-card-image">
-                            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" alt="遠征試合のお知らせ" class="news-image">
+                            <img src="img/soccer-9.jpg" alt="遠征試合のお知らせ" class="news-image">
                             <div class="news-category-badge">
                                 <span>🏷️</span>
                                 試合予定
@@ -173,10 +184,10 @@
                     </article>
 
                     <!-- ニュースカード5 -->
-                    <article class="news-card">
+                    <article class="news-card" id="new">
                         <div class="news-card-image">
-                            <img src="https://images.unsplash.com/photo-1556056504-5c7696c4c28d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" alt="練習グラウンドの整備完了" class="news-image">
-                            <div class="news-category-badge">
+                            <img src="img/soccer-3.jpg" alt="練習グラウンドの整備完了" class="news-image">
+                            <div class="news-category-badge ">
                                 <span>🏷️</span>
                                 お知らせ
                             </div>
@@ -195,10 +206,10 @@
                     </article>
 
                     <!-- ニュースカード6 -->
-                    <article class="news-card">
+                    <article class="news-card" id="event">
                         <div class="news-card-image">
-                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" alt="卒団式を開催しました" class="news-image">
-                            <div class="news-category-badge">
+                            <img src="img/soccer-3.jpg" alt="卒団式を開催しました" class="news-image">
+                            <div class="news-category-badge ">
                                 <span>🏷️</span>
                                 イベント
                             </div>
@@ -272,5 +283,8 @@
         </div>
       </div>
     </footer>
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
 </body>
 </html>

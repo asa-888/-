@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>活動内容 - サッカーチームHP</title>
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -23,10 +25,16 @@
                 <a href="contact.html" class="team-nav-link">お問い合わせ</a>
             </nav>
             <button class="hamburger-button" aria-label="メニューを開く">
-                <span>メニュー</span>
+                <section>
+                    <div class="btn-trigger" id="btn01">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </section>
             </button>
         </div>
-        <div class="mobile-menu-overlay" style="display: none;">
+        <div class="mobile-menu-overlay">
             <div class="mobile-menu">
                 <div class="mobile-menu-header">
                     <div class="team-logo">
@@ -34,7 +42,7 @@
                         <span class="team-logo-text">青空FC</span>
                     </div>
                     <button class="mobile-menu-close" aria-label="メニューを閉じる">
-                        <span>閉じる</span>
+                        <span></span>
                     </button>
                 </div>
                 <nav class="mobile-menu-nav">
@@ -56,14 +64,17 @@
         <!-- ヒーローセクション -->
         <section class="activity-hero team-bg-gradient">
             <div class="team-section-container">
-                <button class="back-button" onclick="window.location.href='index.html'">
+                <!-- <button class="back-button" onclick="window.location.href='index.html'">
                     <span>&larr;</span>
                     ホームに戻る
-                </button>
+                </button> -->
                 <h1 class="activity-hero-title">活動内容</h1>
                 <p class="activity-hero-subtitle">
                     年代別・レベル別の充実したプログラム
                 </p>
+                <button class="back-button">
+                    <a href="index.html">back</a>
+                </button>
             </div>
         </section>
 
@@ -74,7 +85,7 @@
                     <!-- 活動カード1 -->
                     <div class="activity-compact-card">
                         <div class="activity-compact-image">
-                            <img src="https://images.unsplash.com/photo-1571068316344-75bc76f77890?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" alt="基礎技術トレーニング" class="activity-image-compact">
+                            <img src="img/soccer-1.jpg" alt="基礎技術トレーニング" class="activity-image-compact">
                             <div class="activity-category-badge-compact" style="background-color: var(--team-grass-green);">
                                 <span>⚽</span> 練習
                             </div>
@@ -101,7 +112,7 @@
                     <!-- 活動カード2 -->
                     <div class="activity-compact-card">
                         <div class="activity-compact-image">
-                            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" alt="チーム戦術練習" class="activity-image-compact">
+                            <img src="img/soccer-7.jpg" alt="チーム戦術練習" class="activity-image-compact">
                             <div class="activity-category-badge-compact" style="background-color: var(--team-grass-green);">
                                 <span>⚽</span> 練習
                             </div>
@@ -128,7 +139,7 @@
                     <!-- 活動カード3 -->
                     <div class="activity-compact-card">
                         <div class="activity-compact-image">
-                            <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" alt="試合・大会参加" class="activity-image-compact">
+                            <img src="img/soccer-2.jpg" alt="試合・大会参加" class="activity-image-compact">
                             <div class="activity-category-badge-compact" style="background-color: var(--team-main-blue);">
                                 <span>⚽</span> 試合
                             </div>
@@ -155,7 +166,7 @@
                     <!-- 活動カード4 -->
                     <div class="activity-compact-card">
                         <div class="activity-compact-image">
-                            <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" alt="サッカー教室" class="activity-image-compact">
+                            <img src="img/soccer-9.jpg" alt="サッカー教室" class="activity-image-compact">
                             <div class="activity-category-badge-compact" style="background-color: var(--team-sub-blue);">
                                 <span>⚽</span> イベント
                             </div>
@@ -250,5 +261,8 @@
         </div>
       </div>
     </footer>
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
 </body>
 </html>

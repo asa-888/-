@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>チームについて - サッカーチームHP</title>
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <!-- ヘッダー（共通部分として後でPHPでインクルード） -->
     <header class="team-header">
@@ -23,10 +27,16 @@
                 <a href="contact.html" class="team-nav-link">お問い合わせ</a>
             </nav>
             <button class="hamburger-button" aria-label="メニューを開く">
-                <span>メニュー</span>
+                <section>
+                    <div class="btn-trigger" id="btn01">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </section>
             </button>
         </div>
-        <div class="mobile-menu-overlay" style="display: none;">
+        <div class="mobile-menu-overlay">
             <div class="mobile-menu">
                 <div class="mobile-menu-header">
                     <div class="team-logo">
@@ -34,7 +44,7 @@
                         <span class="team-logo-text">青空FC</span>
                     </div>
                     <button class="mobile-menu-close" aria-label="メニューを閉じる">
-                        <span>閉じる</span>
+                        <span></span>
                     </button>
                 </div>
                 <nav class="mobile-menu-nav">
@@ -56,14 +66,16 @@
         <!-- ヒーローセクション -->
         <section class="about-hero team-bg-gradient">
             <div class="team-section-container">
-                <button class="back-button" onclick="window.location.href='index.html'">
-                    <span>&larr;</span>
-                    ホームに戻る
-                </button>
+           
+
                 <h1 class="about-hero-title">チームについて</h1>
                 <p class="about-hero-subtitle">
                     未来のJリーガーを育てる地域密着のサッカークラブ
                 </p>
+
+                <button class="back-button">
+                    <a href="index.html">back</a>
+                </button>
             </div>
         </section>
 
@@ -78,7 +90,7 @@
                             幼児から中学生まで、幅広い年代の子どもたちがサッカーを通じて
                             技術向上と人間性の成長を目指しています。
                         </p>
-                        
+
                         <div class="about-stats-compact">
                             <div class="stat-item">
                                 <div class="stat-number">150+</div>
@@ -96,7 +108,7 @@
                     </div>
 
                     <div class="about-overview-image">
-                        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" alt="チーム集合写真" class="overview-image-compact">
+                        <img src="img/soccer-4.jpg" alt="チーム集合写真" class="overview-image-compact">
                     </div>
                 </div>
             </div>
@@ -152,7 +164,7 @@
                 <div class="coaches-grid-compact">
                     <div class="coach-card-compact">
                         <div class="coach-image-compact">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=400" alt="田中 太郎" class="coach-photo-compact">
+                            <img src="img/coach1.jpg" alt="田中 太郎" class="coach-photo-compact">
                         </div>
                         <div class="coach-info-compact">
                             <h3 class="coach-name-compact">田中 太郎</h3>
@@ -162,7 +174,7 @@
                     </div>
                     <div class="coach-card-compact">
                         <div class="coach-image-compact">
-                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b69c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=400" alt="佐藤 花子" class="coach-photo-compact">
+                            <img src="./img/coach3.jpg" alt="佐藤 花子" class="coach-photo-compact">
                         </div>
                         <div class="coach-info-compact">
                             <h3 class="coach-name-compact">佐藤 花子</h3>
@@ -177,55 +189,59 @@
 
     <!-- フッター（共通部分として後でPHPでインクルード） -->
     <footer class="team-footer-compact">
-      <div class="team-footer-compact-container">
-        <div class="team-footer-compact-main">
-          <div class="team-footer-compact-section">
-            <div class="team-footer-compact-logo">
-              <div class="team-footer-logo-icon">⚽</div>
-              <span class="team-footer-logo-text">青空FC</span>
-            </div>
-            <div class="team-footer-compact-contact">
-              <span>TEL: 090-1234-5678</span>
-              <span>Email: info@aozora-fc.com</span>
-            </div>
-          </div>
+        <div class="team-footer-compact-container">
+            <div class="team-footer-compact-main">
+                <div class="team-footer-compact-section">
+                    <div class="team-footer-compact-logo">
+                        <div class="team-footer-logo-icon">⚽</div>
+                        <span class="team-footer-logo-text">青空FC</span>
+                    </div>
+                    <div class="team-footer-compact-contact">
+                        <span>TEL: 090-1234-5678</span>
+                        <span>Email: info@aozora-fc.com</span>
+                    </div>
+                </div>
 
-          <div class="team-footer-compact-section">
-            <div class="team-footer-compact-nav">
-              <a href="index.html" class="team-footer-compact-link">ホーム</a>
-              <a href="about.html" class="team-footer-compact-link active">チーム概要</a>
-              <a href="news.html" class="team-footer-compact-link">ニュース</a>
-              <a href="schedule.html" class="team-footer-compact-link">スケジュール</a>
-              <a href="activity.html" class="team-footer-compact-link">活動内容</a>
-              <a href="contact.html" class="team-footer-compact-link">お問い合わせ</a>
-            </div>
-          </div>
+                <div class="team-footer-compact-section">
+                    <div class="team-footer-compact-nav">
+                        <a href="index.html" class="team-footer-compact-link">ホーム</a>
+                        <a href="about.html" class="team-footer-compact-link active">チーム概要</a>
+                        <a href="news.html" class="team-footer-compact-link">ニュース</a>
+                        <a href="schedule.html" class="team-footer-compact-link">スケジュール</a>
+                        <a href="activity.html" class="team-footer-compact-link">活動内容</a>
+                        <a href="contact.html" class="team-footer-compact-link">お問い合わせ</a>
+                    </div>
+                </div>
 
-          <div class="team-footer-compact-section">
-            <div class="team-footer-compact-sns">
-              <a href="#" class="team-footer-compact-sns-link">
-                <span>📷</span>
-              </a>
-              <a href="#" class="team-footer-compact-sns-link">
-                <span>X</span>
-              </a>
-              <a href="#" class="team-footer-compact-sns-link">
-                <span>f</span>
-              </a>
-              <a href="mailto:info@aozora-fc.com" class="team-footer-compact-sns-link">
-                <span>✉️</span>
-              </a>
+                <div class="team-footer-compact-section">
+                    <div class="team-footer-compact-sns">
+                        <a href="#" class="team-footer-compact-sns-link">
+                            <span>📷</span>
+                        </a>
+                        <a href="#" class="team-footer-compact-sns-link">
+                            <span>X</span>
+                        </a>
+                        <a href="#" class="team-footer-compact-sns-link">
+                            <span>f</span>
+                        </a>
+                        <a href="mailto:info@aozora-fc.com" class="team-footer-compact-sns-link">
+                            <span>✉️</span>
+                        </a>
+                    </div>
+                    <div class="team-footer-compact-address">
+                        <span>〒123-4567 東京都○○区△△町1-2-3</span>
+                    </div>
+                </div>
             </div>
-            <div class="team-footer-compact-address">
-              <span>〒123-4567 東京都○○区△△町1-2-3</span>
+
+            <div class="team-footer-compact-copyright">
+                <span>© 2024 青空FC. All rights reserved.</span>
             </div>
-          </div>
         </div>
-
-        <div class="team-footer-compact-copyright">
-          <span>© 2024 青空FC. All rights reserved.</span>
-        </div>
-      </div>
     </footer>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
 </body>
+
 </html>
